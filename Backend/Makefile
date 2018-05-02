@@ -10,7 +10,7 @@ CPP_FLAGS := -D_DEBUG -MMD -MP -Werror -Wall -g -pedantic -O0 -std=c++17 -I$(INC
 
 LD_FLAGS := -lstdc++ -lm
 
-CFILES := $(shell find $(SOURCE) -name "*.cpp")
+CFILES := $(shell find $(SOURCE) -name "*.cpp" ! -path "$(SOURCE)/Android/*")
 
 OFILES := $(patsubst $(SOURCE)/%.cpp,$(BIN)/%.o, $(CFILES))
 HFILES := $(wildcard $(INCLUDE)/*.hpp)
