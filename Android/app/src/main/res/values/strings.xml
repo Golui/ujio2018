@@ -4,5 +4,6 @@
     <string name="str_track_order">Śledź zamówienie!</string>
     <string name="str_main_screen_logo_desc">JurPizza Main Logo</string>
     <string name="str_pick_pizza">Wybierz Pizze!</string>
+    <string name="str_pick_beverage">Wybierz Napój!</string>
     <string name="dummy_descr">TODO</string>
 </resources>

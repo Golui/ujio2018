@@ -3,5 +3,5 @@
     android:innerRadius="@android:dimen/app_icon_size"
     android:shape="rectangle">
     <corners android:radius="8dip"></corners>
-    <solid android:color="@color/secondary" />
+    <solid android:color="@color/accent" />
 </shape>
