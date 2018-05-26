@@ -41,7 +41,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/str_pick_beverage"
-            android:textSize="32sp"
+            android:theme="@style/InfoText"
             app:layout_constraintBottom_toBottomOf="@+id/basket_image"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/basket_image" />
@@ -58,7 +58,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ListView
-            android:id="@+id/pizza_selection_list"
+            android:id="@+id/beverage_selection_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:divider="@android:color/transparent"

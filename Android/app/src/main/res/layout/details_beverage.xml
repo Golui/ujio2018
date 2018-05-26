@@ -33,48 +33,19 @@
         app:layout_constraintRight_toLeftOf="@+id/white"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/details_pizza_spinner_wrapper3"
-            android:layout_width="320dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_extras">
-
-            <Spinner
-                android:id="@+id/details_pizza_spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
-
         <TextView
-            android:id="@+id/details_pizza_extras"
+            android:id="@+id/details_pizza_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Dodatkowe składniki"
+            android:text="Ilość"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper2" />
-
-        <TextView
-            android:id="@+id/details_pizza_sauce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Sosy"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper1" />
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_spinner_wrapper2" />
 
         <RelativeLayout
-            android:id="@+id/details_pizza_spinner_wrapper1"
+            android:id="@+id/details_beverage_spinner_wrapper1"
             android:layout_width="320dp"
             android:layout_height="32dp"
             android:layout_marginEnd="8dp"
@@ -86,15 +57,15 @@
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_size">
 
             <Spinner
-                android:id="@+id/details_pizza_spinner1"
+                android:id="@+id/details_beverage_spinner1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </RelativeLayout>
 
         <View
-            android:id="@+id/details_pizza_box"
+            android:id="@+id/details_beverage_box"
             android:layout_width="0dp"
-            android:layout_height="128dp"
+            android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -102,48 +73,37 @@
             android:maxWidth="320dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_header" />
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_header" />
 
         <TextView
-            android:id="@+id/details_pizza_name"
+            android:id="@+id/details_beverage_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginEnd="8dp"
-            android:text="DUMMY PIZZA"
+            android:text="DUMMY beverage"
             android:textColor="@color/darkText"
-            android:theme="@style/InfoTextSmall"
+            android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/details_pizza_box"
-            app:layout_constraintStart_toStartOf="@+id/details_pizza_box"
-            app:layout_constraintTop_toTopOf="@+id/details_pizza_box" />
-
-        <View
-            android:id="@+id/details_pizza_dashed_divider"
-            android:layout_width="0dp"
-            android:layout_height="4dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/dashed_line"
-            app:layout_constraintEnd_toEndOf="@+id/details_pizza_box"
-            app:layout_constraintStart_toStartOf="@+id/details_pizza_box"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_name" />
+            app:layout_constraintEnd_toEndOf="@+id/details_beverage_box"
+            app:layout_constraintStart_toStartOf="@+id/details_beverage_box"
+            app:layout_constraintTop_toTopOf="@+id/details_beverage_box" />
 
         <TextView
-            android:id="@+id/details_pizza_header"
+            android:id="@+id/details_beverage_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Szczegóły zamówienia"
-            android:theme="@style/InfoTextSmall"
+            android:theme="@style/InfoText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/details_pizza_plate"
+            android:id="@+id/details_beverage_glass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -151,22 +111,22 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_box"
-            app:srcCompat="@mipmap/plate" />
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_box"
+            app:srcCompat="@mipmap/colddrink_glass" />
 
         <TextView
-            android:id="@+id/details_pizza_size"
+            android:id="@+id/details_beverage_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:text="Pojemność"
             android:theme="@style/InfoTextSmall"
-            android:text="Rozmiar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_plate" />
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_glass" />
 
         <RelativeLayout
-            android:id="@+id/details_pizza_spinner_wrapper2"
+            android:id="@+id/details_beverage_spinner_wrapper2"
             android:layout_width="320dp"
             android:layout_height="32dp"
             android:layout_marginEnd="8dp"
@@ -175,10 +135,10 @@
             android:background="@drawable/white_rounded_rect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_sauce">
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_size">
 
             <Spinner
-                android:id="@+id/details_pizza_spinner2"
+                android:id="@+id/details_beverage_spinner2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </RelativeLayout>

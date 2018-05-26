@@ -34,14 +34,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/str_pick_pizza"
+            android:id="@+id/pick_pizza_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/str_pick_pizza"
-            android:textSize="32sp"
+            android:theme="@style/InfoText"
             app:layout_constraintBottom_toBottomOf="@+id/basket_image"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/basket_image" />
