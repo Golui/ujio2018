@@ -1,8 +1,19 @@
 package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ScrollView;
+
+import org.osmdroid.api.IMapController;
+import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,41 +35,11 @@ public class LaunchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setContentView(R.layout.activity_main);
-        setContentView(R.layout.basket_preview);
+        Context ctx = getApplicationContext();
+        Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
+        setContentView(R.layout.activity_main);
 
-        List p = Arrays.asList(
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Filmowa", 1100, Arrays.asList("Pomidory", "Ser", "Statysta", "Klisza", "Szkło")),
-                new Pizza("Marysia", 1010, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1001, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser")),
-                new Pizza("Marysia", 1000, Arrays.asList("Pomidory", "Ser"))
-                );
-
-        PreviewBasketAdapter ppa = new PreviewBasketAdapter(p, this.getApplicationContext());
-
-        ListView lv = ((ListView)findViewById(R.id.basket_preview_scroll));
-        lv.setAdapter(ppa);
-
-
-        //setContentView(R.layout.details_pizza);
-
-        //getActionBar().hide();
-//        // Example of a call to a native method
-//        TextView tv = (TextView) findViewById(R.id.sample_text);
-//        tv.setText(stringFromJNI());
     }
     /**
      * A native method that is implemented by the 'native-lib' native library,
