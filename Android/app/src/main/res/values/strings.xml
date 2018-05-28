@@ -6,4 +6,17 @@
     <string name="str_pick_pizza">Wybierz Pizze!</string>
     <string name="str_pick_beverage">Wybierz Napój!</string>
     <string name="dummy_descr">TODO</string>
+    <string name="how_much">Ile?</string>
+    <string name="str_what">Co?</string>
+    <string name="str_in_total">Razem:</string>
+    <string name="str_amount">Ilość</string>
+    <string name="str_order_details">Szczegóły zamówienia</string>
+    <string name="str_volume">Pojemność</string>
+    <string name="str_for_how_much">Za ile?</string>
+    <string name="str_where">Gdzie?</string>
+    <string name="str_realiastion_details">Szczegóły realizacji</string>
+    <string name="str_status">Status</string>
+    <string name="str_additional_toppings">Dodatkowe składniki</string>
+    <string name="str_sauces">Sosy</string>
+    <string name="str_size">Rozmiar</string>
 </resources>

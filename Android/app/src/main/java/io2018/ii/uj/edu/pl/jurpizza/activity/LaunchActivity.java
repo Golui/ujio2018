@@ -4,25 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.ScrollView;
 
-import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.util.GeoPoint;
-import org.osmdroid.views.MapView;
-
-import java.util.Arrays;
-import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
-import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
-import io2018.ii.uj.edu.pl.jurpizza.adapter.PreviewBasketAdapter;
-import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class LaunchActivity extends Activity {
 
@@ -41,9 +26,4 @@ public class LaunchActivity extends Activity {
         setContentView(R.layout.activity_main);
 
     }
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }

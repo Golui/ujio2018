@@ -25,9 +25,7 @@ public class OrderStatus extends Activity {
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
-
-        //setContentView(R.layout.activity_main);
-        setContentView(R.layout.details_order);
+        setContentView(R.layout.details_order_status);
 
         MapView map = (MapView) findViewById(R.id.details_order_map);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -56,17 +54,7 @@ public class OrderStatus extends Activity {
                 return v.onTouchEvent(event);
             }
         });
-        //setContentView(R.layout.details_pizza);
 
-        //getActionBar().hide();
-//        // Example of a call to a native method
-//        TextView tv = (TextView) findViewById(aR.id.sample_text);
-//        tv.setText(stringFromJNI());
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }

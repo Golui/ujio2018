@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Dodatkowe składniki"
+            android:text="@string/str_additional_toppings"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper2" />
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Sosy"
+            android:text="@string/str_sauces"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper1" />
@@ -136,7 +136,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Szczegóły zamówienia"
+            android:text="@string/str_order_details"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +161,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:theme="@style/InfoTextSmall"
-            android:text="Rozmiar"
+            android:text="@string/str_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_plate" />
 
