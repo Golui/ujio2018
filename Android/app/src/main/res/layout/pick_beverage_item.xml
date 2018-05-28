@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
 
     <View
-        android:id="@+id/pick_pizza_item_wrapper"
+        android:id="@+id/pick_bevereage_item_wrapper"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginEnd="8dp"
@@ -25,10 +24,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/dummy_descr"
         android:src="@mipmap/colddrink"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/pick_pizza_item_wrapper"
-        app:layout_constraintEnd_toEndOf="@+id/pick_pizza_item_wrapper" />
+        app:layout_constraintBottom_toBottomOf="@+id/pick_bevereage_item_wrapper"
+        app:layout_constraintEnd_toEndOf="@+id/pick_bevereage_item_wrapper" />
 
     <TextView
         android:id="@+id/pick_beverage_name"
@@ -37,20 +37,19 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="DUMMY BEVERAGE"
+        android:text="@string/dummy_descr"
         android:textColor="@color/darkText"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/pick_pizza_price"
-        app:layout_constraintStart_toStartOf="@+id/pick_pizza_item_wrapper"
-        app:layout_constraintTop_toTopOf="@+id/pick_pizza_item_wrapper" />
+        app:layout_constraintStart_toStartOf="@+id/pick_bevereage_item_wrapper"
+        app:layout_constraintTop_toTopOf="@+id/pick_bevereage_item_wrapper" />
 
     <TextView
         android:id="@+id/pick_beverage_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="4.20 zł"
+        android:text="@string/dummy_descr"
         android:textColor="@color/darkText"
         android:textSize="20sp"
         android:textStyle="italic"

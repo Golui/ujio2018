@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
@@ -110,10 +109,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginEnd="8dp"
-            android:text="DUMMY PIZZA"
+            android:text="@string/dummy_descr"
             android:textColor="@color/darkText"
-            android:theme="@style/InfoTextSmall"
             android:textStyle="bold"
+            android:theme="@style/InfoTextSmall"
             app:layout_constraintEnd_toEndOf="@+id/details_pizza_box"
             app:layout_constraintStart_toStartOf="@+id/details_pizza_box"
             app:layout_constraintTop_toTopOf="@+id/details_pizza_box" />
@@ -149,6 +148,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/dummy_descr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_box"
