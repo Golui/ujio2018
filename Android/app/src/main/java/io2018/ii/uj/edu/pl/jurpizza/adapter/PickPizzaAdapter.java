@@ -13,21 +13,13 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickPizzaAdapter extends ArrayAdapter<Pizza> implements View.OnClickListener {
 
-    private DecimalFormat money = new DecimalFormat("#.00");
-
-    private List<Pizza> data;
     Context ctx;
-
-    private static class ViewHolder
-    {
-        TextView name;
-        TextView ingredeints;
-        TextView price;
-    }
+    private List<Pizza> data;
 
     public PickPizzaAdapter(List<Pizza> model, @NonNull Context context) {
         super(context, R.layout.pick_pizza_item, model);
@@ -53,9 +45,9 @@ public class PickPizzaAdapter extends ArrayAdapter<Pizza> implements View.OnClic
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.pick_pizza_item, parent, false);
-            viewHolder.name = (TextView) convertView.findViewById(R.id.pick_pizza_name);
-            viewHolder.ingredeints = (TextView) convertView.findViewById(R.id.pick_pizza_ingredients);
-            viewHolder.price = (TextView) convertView.findViewById(R.id.pick_pizza_price);
+            viewHolder.name = convertView.findViewById(R.id.pick_pizza_name);
+            viewHolder.ingredeints = convertView.findViewById(R.id.pick_pizza_ingredients);
+            viewHolder.price = convertView.findViewById(R.id.pick_pizza_price);
 
             result = convertView;
 
@@ -72,8 +64,14 @@ public class PickPizzaAdapter extends ArrayAdapter<Pizza> implements View.OnClic
         Pizza pm = data.get(position);
         viewHolder.name.setText(pm.getName());
         viewHolder.ingredeints.setText(pm.getIngredients());
-        viewHolder.price.setText(money.format(pm.getPrice()/100.0) + " zł");
+        viewHolder.price.setText(Util.formatMoney(pm.getPrice()));
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private static class ViewHolder {
+        TextView name;
+        TextView ingredeints;
+        TextView price;
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <View
+        android:id="@+id/green"
+        android:layout_width="24dp"
+        android:layout_height="0dp"
+        android:background="#78D175"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.0625" />
+
+    <View
+        android:id="@+id/white"
+        android:layout_width="24dp"
+        android:layout_height="0dp"
+        android:background="#F0F0F0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.0625" />
+
+    <ListView
+        android:id="@+id/track_orders_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="4dp"
+        android:paddingBottom="32dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintEnd_toStartOf="@+id/white"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listheader="@layout/track_orders_header">
+
+
+    </ListView>
+
+</android.support.constraint.ConstraintLayout>

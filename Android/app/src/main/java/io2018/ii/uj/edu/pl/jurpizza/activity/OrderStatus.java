@@ -27,7 +27,7 @@ public class OrderStatus extends Activity {
 
         setContentView(R.layout.details_order_status);
 
-        MapView map = (MapView) findViewById(R.id.details_order_map);
+        MapView map = findViewById(R.id.details_order_map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);

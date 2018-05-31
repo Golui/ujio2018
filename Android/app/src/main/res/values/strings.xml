@@ -19,4 +19,6 @@
     <string name="str_additional_toppings">Dodatkowe składniki</string>
     <string name="str_sauces">Sosy</string>
     <string name="str_size">Rozmiar</string>
+    <string name="str_your_orders">Twoje zamówienia</string>
+    <string name="str_no_orders">Brak zamówień ☹</string>
 </resources>

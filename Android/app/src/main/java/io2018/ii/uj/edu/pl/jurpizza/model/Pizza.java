@@ -11,7 +11,7 @@ public class Pizza implements BasketEntry {
         this.pizzaName = pizzaName;
         this.pizzaPrice = pizzaPrice;
         StringBuffer sb = new StringBuffer();
-        for(String s : ingredients) sb.append(s).append(", ");
+        for (String s : ingredients) sb.append(s).append(", ");
         sb.delete(sb.length() - 2, sb.length());
         this.ingredients = sb.toString();
         //this.oldPrice = -1;

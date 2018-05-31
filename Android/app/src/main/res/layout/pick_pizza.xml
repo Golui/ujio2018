@@ -50,7 +50,7 @@
             android:id="@+id/basket_image"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/dummy_descr"
             android:src="@mipmap/basket"

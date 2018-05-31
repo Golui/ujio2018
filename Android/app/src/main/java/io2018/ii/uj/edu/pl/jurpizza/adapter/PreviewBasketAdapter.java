@@ -13,21 +13,14 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PreviewBasketAdapter extends ArrayAdapter<Pizza> implements View.OnClickListener {
 
-    private DecimalFormat money = new DecimalFormat("#.00");
-
-    private List<Pizza> data;
     Context ctx;
-
-    private static class ViewHolder
-    {
-        TextView name;
-        TextView price;
-    }
+    private List<Pizza> data;
 
     public PreviewBasketAdapter(List<Pizza> model, @NonNull Context context) {
         super(context, R.layout.pick_pizza_item, model);
@@ -53,8 +46,8 @@ public class PreviewBasketAdapter extends ArrayAdapter<Pizza> implements View.On
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.basket_preview_item, parent, false);
-            viewHolder.name = (TextView) convertView.findViewById(R.id.preview_basket_item_name);
-            viewHolder.price = (TextView) convertView.findViewById(R.id.preview_basket_item_price);
+            viewHolder.name = convertView.findViewById(R.id.preview_basket_item_name);
+            viewHolder.price = convertView.findViewById(R.id.preview_basket_item_price);
 
             result = convertView;
 
@@ -70,8 +63,13 @@ public class PreviewBasketAdapter extends ArrayAdapter<Pizza> implements View.On
 
         BasketEntry pm = data.get(position);
         viewHolder.name.setText(pm.getBasketString());
-        viewHolder.price.setText(money.format(pm.getPrice()/100.0) + " zł");
+        viewHolder.price.setText(Util.formatMoney(pm.getPrice()));
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private static class ViewHolder {
+        TextView name;
+        TextView price;
     }
 }
