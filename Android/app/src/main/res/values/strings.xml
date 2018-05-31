@@ -31,4 +31,6 @@
     <string name="str_payment_type">Wybierz metodę płatości</string>
     <string name="str_payment_on_delivery">Kartą przy odbiorze</string>
     <string name="str_payment_transfer">Przez internet (Wylewy48)</string>
+    <string name="str_order_placed">Dziękujemy\nza zamówienie!\njuż się za nie zabieramy 😉</string>
+    <string name="str_go_home_you_are_drunk">Wróć do strony początkowej</string>
 </resources>
