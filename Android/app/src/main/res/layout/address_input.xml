@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_address_info"
+            android:text="@string/address_info"
             android:theme="@style/InfoText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_town"
+            android:text="@string/town"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_input_header" />
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:gravity="left|center_vertical"
+                android:gravity="start|center_vertical"
                 android:inputType="text" />
         </RelativeLayout>
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_street"
+            android:text="@string/street"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper1" />
@@ -104,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:gravity="left|center_vertical"
+                android:gravity="start|center_vertical"
                 android:inputType="text" />
         </RelativeLayout>
 
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_house_and_flat_number"
+            android:text="@string/house_and_flat_number"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper2" />
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:gravity="left|center_vertical"
+                android:gravity="start|center_vertical"
                 android:inputType="text" />
         </RelativeLayout>
 
@@ -153,7 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:gravity="left|center_vertical"
+                android:gravity="start|center_vertical"
                 android:inputType="text" />
         </RelativeLayout>
 
@@ -163,7 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_phone"
+            android:text="@string/phone"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper3" />
@@ -185,7 +185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:gravity="left|center_vertical"
+                android:gravity="start|center_vertical"
                 android:inputType="phone" />
         </RelativeLayout>
 

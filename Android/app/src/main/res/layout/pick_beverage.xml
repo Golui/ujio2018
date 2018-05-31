@@ -40,7 +40,7 @@
             android:layout_margin="16dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_pick_beverage"
+            android:text="@string/pick_beverage"
             android:theme="@style/InfoText"
             app:layout_constraintBottom_toBottomOf="@+id/basket_image"
             app:layout_constraintLeft_toLeftOf="parent"

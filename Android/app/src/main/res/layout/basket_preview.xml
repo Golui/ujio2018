@@ -40,7 +40,7 @@
             android:layout_margin="16dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_pick_pizza"
+            android:text="@string/pick_pizza"
             android:theme="@style/InfoText"
             app:layout_constraintBottom_toBottomOf="@+id/basket_image"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/str_what"
+            android:text="@string/what"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/basket_image" />
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/str_in_total"
+            android:text="@string/in_total"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/basket_preview_total_price_number" />
