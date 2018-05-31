@@ -21,4 +21,14 @@
     <string name="str_size">Rozmiar</string>
     <string name="str_your_orders">Twoje zamówienia</string>
     <string name="str_no_orders">Brak zamówień ☹</string>
+    <string name="str_address_info">Dane adresowe</string>
+    <string name="str_town">Miejscowość</string>
+    <string name="str_street">Ulica</string>
+    <string name="str_house_and_flat_number">Numer domu i mieszkania</string>
+    <string name="str_phone">Numer telefonu</string>
+    <string name="str_payment">Płatność $$$</string>
+    <string name="str_total_price">Do zapłaty\nw sumie się uzbierało…</string>
+    <string name="str_payment_type">Wybierz metodę płatości</string>
+    <string name="str_payment_on_delivery">Kartą przy odbiorze</string>
+    <string name="str_payment_transfer">Przez internet (Wylewy48)</string>
 </resources>
