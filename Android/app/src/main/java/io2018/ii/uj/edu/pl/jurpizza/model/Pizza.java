@@ -8,8 +8,7 @@ public class Pizza implements BasketEntry {
     public int pizzaPrice;
     public String ingredients;
 
-    public Pizza(int id, String pizzaName, int pizzaPrice, List<String> ingredients) {
-        this.id = id;
+    public Pizza(String pizzaName, int pizzaPrice, List<String> ingredients) {
         this.pizzaName = pizzaName;
         this.pizzaPrice = pizzaPrice;
         StringBuffer sb = new StringBuffer();

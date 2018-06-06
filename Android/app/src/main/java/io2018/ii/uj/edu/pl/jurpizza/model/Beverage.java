@@ -1,5 +1,6 @@
 package io2018.ii.uj.edu.pl.jurpizza.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,7 +23,7 @@ public class Beverage implements BasketEntry {
         this.variant = b.variant;
     }
 
-    public static class Variant implements Comparable<Variant>
+    public static class Variant implements Comparable<Variant>, Serializable
     {
         String volume;
         int price;

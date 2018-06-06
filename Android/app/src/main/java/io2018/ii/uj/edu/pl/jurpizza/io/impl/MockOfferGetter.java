@@ -8,10 +8,12 @@ import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class MockOfferGetter implements OfferGetter {
-    @Override
-    public List<Pizza> downloadAvailablePizzas() {
 
-        List<Pizza> l = Arrays.asList(
+    private List<Pizza> pizzas;
+    private List<Beverage> bvgs;
+
+    public MockOfferGetter() {
+        this.pizzas = Arrays.asList(
                 new Pizza("Marysia", 1000, Arrays.asList("pomidory", "ser")),
                 new Pizza("Salamé", 1300, Arrays.asList("pomidory", "ser", "salami")),
                 new Pizza("Świnka", 1600, Arrays.asList("pomidory", "ser", "szynka", "boczek")),
@@ -22,18 +24,12 @@ public class MockOfferGetter implements OfferGetter {
                 new Pizza("Kebab", 1600, Arrays.asList("pomidory", "ser", "cebula", "mięso kebab")),
                 new Pizza("Amerykańska", 1000, Arrays.asList("pomidory", "ser", "frytki", "wołowina")),
                 new Pizza("Faux pas", 1000, Arrays.asList("pomidory", "ser", "bazylia", "mielona kawa")),
-                new Pizza("Java", 1400, Arrays.asList("pomidory", "ser", "obiekty", "garbage collector", "\"bezpieczeństow\"")),
+                new Pizza("Java", 1400, Arrays.asList("pomidory", "ser", "obiekty", "garbage collector", "\"bezpieczeństwo\"")),
                 new Pizza("C", 900, Arrays.asList("pomidory", "ser", "macro assembler")),
                 new Pizza("Filmowa", 1000, Arrays.asList("pomidory", "ser", "statysta", "kamera", "nitroceluloza", "bite szkło")),
                 new Pizza("Krykiet", 1000, Arrays.asList("pomidory", "ser", "ciasto na bazie mąki ze świerszczy", "świerze świerszcze", "cebula")),
                 new Pizza("Van Helsing", 1000, Arrays.asList("pomidory", "ser", "czosnek polski", "czosnek chiński", "sos czosnkowy"))
         );
-
-        return l;
-    }
-
-    @Override
-    public List<Beverage> downloadAvailableBeverages() {
 
         Beverage.Variant[] dummyVariants = new Beverage.Variant[]{
                 new Beverage.Variant("0.33l", 400),
@@ -42,14 +38,23 @@ public class MockOfferGetter implements OfferGetter {
                 new Beverage.Variant("1l", 2000),
         };
 
-        List<Beverage> bvgs = Arrays.asList(
+        this.bvgs = Arrays.asList(
                 new Beverage("Koka", dummyVariants),
                 new Beverage("Spiryt", dummyVariants),
                 new Beverage("Dr. Jan", dummyVariants),
                 new Beverage("Marzenia", dummyVariants),
                 new Beverage("Czapi Pomarańczowy", dummyVariants)
         );
+    }
 
-        return bvgs;
+    @Override
+    public List<Pizza> downloadAvailablePizzas() {
+        return this.pizzas;
+    }
+
+    @Override
+    public List<Beverage> downloadAvailableBeverages() {
+
+        return this.bvgs;
     }
 }

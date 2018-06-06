@@ -19,6 +19,7 @@ public class PickPizzaAdapter extends BaseAdapter {
     public PickPizzaAdapter(Context mContext, List<Pizza> mPizzaList) {
         this.mContext = mContext;
         this.mPizzaList = mPizzaList;
+        for (int i = 0; i < mPizzaList.size(); i++) mPizzaList.get(i).id = i;
     }
 
     @Override

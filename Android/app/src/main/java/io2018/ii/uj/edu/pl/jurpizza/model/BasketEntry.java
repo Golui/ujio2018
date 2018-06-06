@@ -1,6 +1,8 @@
 package io2018.ii.uj.edu.pl.jurpizza.model;
 
-public interface BasketEntry {
+import java.io.Serializable;
+
+public interface BasketEntry extends Serializable {
 
     String getName();
 

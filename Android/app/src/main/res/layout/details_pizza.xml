@@ -152,7 +152,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_box"
-            app:srcCompat="@mipmap/plate" />
+            android:src="@mipmap/plate" />
 
         <TextView
             android:id="@+id/details_pizza_size"

@@ -20,9 +20,12 @@ import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
+import io2018.ii.uj.edu.pl.jurpizza.io.OfferGetter;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickPizza extends Activity {
+
+    private OfferGetter og;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +35,9 @@ public class PickPizza extends Activity {
 
         ListView list = findViewById(R.id.pizza_selection_list);
 
-        List<String> l = new ArrayList<String>(Arrays.asList("Kanapka", "Pomidor"));
+        this.og = (OfferGetter) getIntent().getSerializableExtra(LaunchActivity.PIZZA_LIST_INTENT);
 
-        ArrayList<Pizza> myPizzas = new ArrayList<>();
-        myPizzas.add(new Pizza(0, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(1, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(2, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(3, "Martgharita", 20, l));
-
-        PickPizzaAdapter adapter = new PickPizzaAdapter(getApplicationContext(), myPizzas);
+        PickPizzaAdapter adapter = new PickPizzaAdapter(getApplicationContext(), this.og.downloadAvailablePizzas());
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
