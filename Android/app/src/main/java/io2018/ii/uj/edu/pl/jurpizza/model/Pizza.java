@@ -3,11 +3,13 @@ package io2018.ii.uj.edu.pl.jurpizza.model;
 import java.util.List;
 
 public class Pizza implements BasketEntry {
+    public int id;
     public String pizzaName;
     public int pizzaPrice;
     public String ingredients;
 
-    public Pizza(String pizzaName, int pizzaPrice, List<String> ingredients) {
+    public Pizza(int id, String pizzaName, int pizzaPrice, List<String> ingredients) {
+        this.id = id;
         this.pizzaName = pizzaName;
         this.pizzaPrice = pizzaPrice;
         StringBuffer sb = new StringBuffer();
@@ -17,9 +19,8 @@ public class Pizza implements BasketEntry {
         //this.oldPrice = -1;
     }
 
-    public Pizza(String pizzaName, int pizzaPrice, List<String> ingredients, int oldPrice) {
-        this(pizzaName, pizzaPrice, ingredients);
-        //this.oldPrice = oldPrice;
+    public int getId() {
+        return id;
     }
 
     @Override

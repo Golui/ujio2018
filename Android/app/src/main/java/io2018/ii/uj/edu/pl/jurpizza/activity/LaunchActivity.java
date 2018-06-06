@@ -2,12 +2,16 @@ package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
 
 import org.osmdroid.config.Configuration;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
 
 public class LaunchActivity extends Activity {
 
@@ -25,5 +29,27 @@ public class LaunchActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
+        configurateOrderButton();
+        configurateTrackButton();
+    }
+
+    private void configurateOrderButton() {
+        Button orderButton = (Button) findViewById(R.id.order);
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LaunchActivity.this, PickPizza.class));
+            }
+        });
+    }
+
+    private void configurateTrackButton() {
+        Button trackButton = (Button) findViewById(R.id.track);
+        trackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LaunchActivity.this, TrackOrders.class));
+            }
+        });
     }
 }
