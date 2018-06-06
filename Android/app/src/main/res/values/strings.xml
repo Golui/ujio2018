@@ -33,4 +33,5 @@
     <string name="payment_transfer">Przez internet (Wylewy48)</string>
     <string name="order_placed">Dziękujemy\nza zamówienie!\njuż się za nie zabieramy 😉</string>
     <string name="go_home_you_are_drunk">Wróć do strony początkowej</string>
+    <string name="add_to_basket">Dodaj do koszyka</string>
 </resources>
