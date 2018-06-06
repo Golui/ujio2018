@@ -20,6 +20,7 @@ import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
+import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickPizza extends Activity {
@@ -35,14 +36,15 @@ public class PickPizza extends Activity {
         List<String> l = new ArrayList<String>(Arrays.asList("Kanapka", "Pomidor", "aaaaaaaaaaaaaa", "asdasdasdasdasdas", "ASDASDASDASDASDASDASDASDASD"));
 
         final ArrayList<Pizza> myPizzas = new ArrayList<>();
-        myPizzas.add(new Pizza(0, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(1, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(2, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(3, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(5, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(6, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(7, "Martgharita", 20, l));
-        myPizzas.add(new Pizza(8, "Martgharita", 20, l));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Fungi", l, new BasketEntry.Variant("32 cm", 10000)));
+        myPizzas.add(new Pizza( "Cap", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "meksicana", l, new BasketEntry.Variant("32 cm", 9000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+
 
         PickPizzaAdapter adapter = new PickPizzaAdapter(getApplicationContext(), myPizzas);
         list.setAdapter(adapter);
@@ -50,9 +52,9 @@ public class PickPizza extends Activity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView textView = (TextView) view.findViewById(R.id.pick_pizza_name);
-                String message = "You add " + textView.getText().toString() + " to your basket_raster";
-                Toast.makeText(PickPizza.this, message, Toast.LENGTH_LONG).show();
+                //TextView textView = (TextView) view.findViewById(R.id.pick_pizza_name);
+                //String message = "You add " + textView.getText().toString() + " to your basket_raster";
+                //Toast.makeText(PickPizza.this, message, Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(PickPizza.this, DetailsPizza.class);
                 intent.putExtra("pizza", myPizzas.get(position));
