@@ -10,26 +10,28 @@ import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
+import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
+import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 
-public class PickPizzaAdapter extends BaseAdapter {
+public class PickBasketItemAdapter extends BaseAdapter {
     private Context mContext;
-    private List<Pizza> mPizzaList;
+    private List<BasketEntry> mBasketEntryList;
 
-    public PickPizzaAdapter(Context mContext, List<Pizza> mPizzaList) {
+    public PickBasketItemAdapter(Context mContext, List<BasketEntry> mBasketEntryList) {
         this.mContext = mContext;
-        this.mPizzaList = mPizzaList;
+        this.mBasketEntryList = mBasketEntryList;
     }
 
     @Override
     public int getCount() {
-        return mPizzaList.size();
+        return mBasketEntryList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mPizzaList.get(position);
+        return mBasketEntryList.get(position);
     }
 
     @Override
@@ -38,20 +40,38 @@ public class PickPizzaAdapter extends BaseAdapter {
     }
 
     @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
+//instanceOf
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v = View.inflate(mContext, R.layout.pick_pizza_item, null );
-        TextView name = (TextView) v.findViewById(R.id.pick_pizza_name);
-        TextView ingredeints = (TextView) v.findViewById(R.id.pick_pizza_ingredients);
-        TextView price = (TextView) v.findViewById(R.id.pick_pizza_price);
+        if(mBasketEntryList.get(position) instanceof Pizza) {
 
-        name.setText(mPizzaList.get(position).getName());
-        ingredeints.setText(mPizzaList.get(position).getIngredients());
-        price.setText(Util.formatMoney(mPizzaList.get(position).getPrice()));
+            convertView = View.inflate(mContext, R.layout.pick_pizza_item, null);
+            TextView name = (TextView) convertView.findViewById(R.id.pick_pizza_name);
+            TextView ingredeints = (TextView) convertView.findViewById(R.id.pick_pizza_ingredients);
+            TextView price = (TextView) convertView.findViewById(R.id.pick_pizza_price);
 
-        v.setTag(mPizzaList.get(position).getId());
+            Pizza pizza = (Pizza) mBasketEntryList.get(position);
 
-        return v;
+            name.setText(pizza.getName());
+            ingredeints.setText(pizza.getIngredients());
+            price.setText(Util.formatMoney(pizza.getPrice()));
+
+        } else {
+            convertView = View.inflate(mContext, R.layout.pick_beverage_item, null);
+            TextView name = (TextView) convertView.findViewById(R.id.pick_beverage_name);
+            TextView price = (TextView) convertView.findViewById(R.id.pick_beverage_price);
+
+            Beverage beverage = (Beverage) mBasketEntryList.get(position);
+
+            name.setText(beverage.getName());
+            price.setText(Util.formatMoney(beverage.getPrice()));
+        }
+
+        return convertView;
     }
 
 /*
@@ -65,7 +85,7 @@ public class PickPizzaAdapter extends BaseAdapter {
         TextView price;
     }
 
-    public PickPizzaAdapter(Context context, int textViewResourceId, ArrayList<Pizza> items) {
+    public PickBasketItemAdapter(Context context, int textViewResourceId, ArrayList<Pizza> items) {
         super(context, textViewResourceId, items);
         this.addAll(items);
     }

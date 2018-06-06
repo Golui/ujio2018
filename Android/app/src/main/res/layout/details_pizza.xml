@@ -33,35 +33,6 @@
         app:layout_constraintRight_toLeftOf="@+id/white"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/details_pizza_spinner_wrapper3"
-            android:layout_width="320dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_extras">
-
-            <Spinner
-                android:id="@+id/details_pizza_spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/details_pizza_extras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/additional_toppings"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper2" />
-
         <TextView
             android:id="@+id/details_pizza_sauce"
             android:layout_width="wrap_content"
@@ -179,11 +150,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@string/dummy_descr"
             android:textColor="@color/darkText"
             app:layout_constraintBottom_toBottomOf="@+id/details_pizza_box"
-            app:layout_constraintEnd_toEndOf="@+id/details_pizza_box"
-            app:layout_constraintStart_toStartOf="@+id/details_pizza_box"
+            app:layout_constraintEnd_toEndOf="@+id/details_pizza_name"
+            app:layout_constraintStart_toStartOf="@+id/details_pizza_name"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_name" />
 
         <Button
@@ -195,6 +167,8 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/main_button_bg"
             android:padding="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:text="@string/add_to_basket"
             android:textAllCaps="false"
             android:textColor="#F0F0F0"
@@ -217,7 +191,7 @@
             app:layout_constraintBottom_toTopOf="@+id/details_pizza_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper3" />
+            app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper2" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

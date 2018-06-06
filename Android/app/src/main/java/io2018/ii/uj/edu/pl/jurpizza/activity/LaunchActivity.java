@@ -37,7 +37,7 @@ public class LaunchActivity extends Activity {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LaunchActivity.this, PickPizza.class));
+                startActivity(new Intent(LaunchActivity.this, PickItem.class));
             }
         });
     }

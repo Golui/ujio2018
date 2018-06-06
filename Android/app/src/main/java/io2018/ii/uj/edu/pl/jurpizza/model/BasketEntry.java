@@ -24,6 +24,7 @@ public abstract class BasketEntry implements Serializable {
         this.variant = b.variant;
     }
 
+
     public static class Variant implements Comparable<Variant>, Serializable
     {
         String volume;
