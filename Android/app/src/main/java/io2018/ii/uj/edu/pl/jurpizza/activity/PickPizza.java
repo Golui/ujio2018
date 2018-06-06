@@ -20,7 +20,11 @@ import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
+<<<<<<< HEAD
 import io2018.ii.uj.edu.pl.jurpizza.io.OfferGetter;
+=======
+import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
+>>>>>>> add pizza details activity
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickPizza extends Activity {
@@ -35,7 +39,22 @@ public class PickPizza extends Activity {
 
         ListView list = findViewById(R.id.pizza_selection_list);
 
+<<<<<<< HEAD
         this.og = (OfferGetter) getIntent().getSerializableExtra(LaunchActivity.PIZZA_LIST_INTENT);
+=======
+        List<String> l = new ArrayList<String>(Arrays.asList("Kanapka", "Pomidor", "aaaaaaaaaaaaaa", "asdasdasdasdasdas", "ASDASDASDASDASDASDASDASDASD"));
+
+        final ArrayList<Pizza> myPizzas = new ArrayList<>();
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Fungi", l, new BasketEntry.Variant("32 cm", 10000)));
+        myPizzas.add(new Pizza( "Cap", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "meksicana", l, new BasketEntry.Variant("32 cm", 9000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+
+>>>>>>> add pizza details activity
 
         PickPizzaAdapter adapter = new PickPizzaAdapter(getApplicationContext(), this.og.downloadAvailablePizzas());
         list.setAdapter(adapter);
@@ -43,9 +62,9 @@ public class PickPizza extends Activity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView textView = (TextView) view.findViewById(R.id.pick_pizza_name);
-                String message = "You add " + textView.getText().toString() + " to your basket_raster";
-                Toast.makeText(PickPizza.this, message, Toast.LENGTH_LONG).show();
+                //TextView textView = (TextView) view.findViewById(R.id.pick_pizza_name);
+                //String message = "You add " + textView.getText().toString() + " to your basket_raster";
+                //Toast.makeText(PickPizza.this, message, Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(PickPizza.this, DetailsPizza.class);
                 intent.putExtra("pizza", PickPizza.this.og.downloadAvailablePizzas().get(position));
