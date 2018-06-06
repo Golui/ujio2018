@@ -44,9 +44,12 @@ public class PickPizza extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view.findViewById(R.id.pick_pizza_name);
-                String message = "You clicked # " + position
-                        + ", which is string: " + textView.getText().toString();
+                String message = "You add " + textView.getText().toString() + " to your basket_raster";
                 Toast.makeText(PickPizza.this, message, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(PickPizza.this, DetailsPizza.class);
+                intent.putExtra("pizza", PickPizza.this.og.downloadAvailablePizzas().get(position));
+                startActivity(intent);
             }
         });
 

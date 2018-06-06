@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 
@@ -42,12 +43,12 @@ public class PickPizzaAdapter extends BaseAdapter {
 
         View v = View.inflate(mContext, R.layout.pick_pizza_item, null );
         TextView name = (TextView) v.findViewById(R.id.pick_pizza_name);
-        //TextView ingredeints = (TextView) v.findViewById(R.id.pick_pizza_ingredients);
-        //TextView price = (TextView) v.findViewById(R.id.pick_pizza_price);
+        TextView ingredeints = (TextView) v.findViewById(R.id.pick_pizza_ingredients);
+        TextView price = (TextView) v.findViewById(R.id.pick_pizza_price);
 
         name.setText(mPizzaList.get(position).getName());
-        //ingredeints.setText(mPizzaList.get(position).getIngredients());
-        //price.setText(mPizzaList.get(position).getPrice() + " PLN");
+        ingredeints.setText(mPizzaList.get(position).getIngredients());
+        price.setText(Util.formatMoney(mPizzaList.get(position).getPrice()));
 
         v.setTag(mPizzaList.get(position).getId());
 

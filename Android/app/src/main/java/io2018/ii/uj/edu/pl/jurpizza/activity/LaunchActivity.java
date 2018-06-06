@@ -13,13 +13,7 @@ import android.widget.Button;
 
 import org.osmdroid.config.Configuration;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
-
 import io2018.ii.uj.edu.pl.jurpizza.R;
-import io2018.ii.uj.edu.pl.jurpizza.io.AddressManager;
-import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockAddressManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOfferGetter;
 
 public class LaunchActivity extends Activity {
