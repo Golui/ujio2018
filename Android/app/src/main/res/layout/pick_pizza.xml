@@ -54,7 +54,7 @@
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/dummy_descr"
-            android:src="@mipmap/basket"
+            android:src="@mipmap/basket_raster"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -11,7 +11,6 @@ import android.widget.Button;
 import org.osmdroid.config.Configuration;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
-import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
 
 public class LaunchActivity extends Activity {
 

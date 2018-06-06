@@ -55,6 +55,8 @@
         android:textColor="@color/darkText"
         android:textSize="20sp"
         android:textStyle="italic"
+        android:ellipsize="end"
+        android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="@+id/pick_pizza_item_wrapper"
         app:layout_constraintEnd_toStartOf="@+id/pick_pizza_button"
         app:layout_constraintStart_toStartOf="@+id/pick_pizza_item_wrapper" />
