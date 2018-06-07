@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.Serializable;
 import java.util.List;
 
-import io2018.ii.uj.edu.pl.jurpizza.model.Address;
+import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 
 public interface AddressManager extends Serializable {
 
@@ -13,5 +13,5 @@ public interface AddressManager extends Serializable {
 
     void saveAddresses(Context ctx);
 
-    List<Address> getAddresses();
+    List<DeliveryAddress> getAddresses();
 }

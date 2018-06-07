@@ -24,168 +24,234 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.0625" />
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
+        android:id="@+id/details_order_main_scroll"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/white"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/white"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/address_input_header"
-            android:layout_width="wrap_content"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/address_info"
-            android:theme="@style/InfoText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/white"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/address_input_town"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/town"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_header" />
+            <TextView
+                android:id="@+id/address_input_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/address_info"
+                android:theme="@style/InfoText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/address_input_text_wrapper1"
-            android:layout_width="320dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_town">
+            <TextView
+                android:id="@+id/address_input_identifier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/identifier"
+                android:theme="@style/InfoTextSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_header" />
 
-            <Spinner
-                android:id="@+id/address_input_spinner1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper0"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_identifier">
 
-        <TextView
-            android:id="@+id/address_input_street"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/street"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper1" />
+                <EditText
+                    android:id="@+id/address_input_text0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:inputType="text" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/address_input_text_wrapper2"
-            android:layout_width="320dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_street">
+            <TextView
+                android:id="@+id/address_input_town"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/town"
+                android:theme="@style/InfoTextSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper0" />
 
-            <EditText
-                android:id="@+id/address_input_text2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="start|center_vertical"
-                android:inputType="text" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper1"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_town">
 
-        <TextView
-            android:id="@+id/address_input_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/house_and_flat_number"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper2" />
+                <Spinner
+                    android:id="@+id/address_input_spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/address_input_text_wrapper3"
-            android:layout_width="152dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_number">
+            <TextView
+                android:id="@+id/address_input_street"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/street"
+                android:theme="@style/InfoTextSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper1" />
 
-            <EditText
-                android:id="@+id/address_input_text3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="start|center_vertical"
-                android:inputType="text" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper2"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_street">
 
-        <RelativeLayout
-            android:id="@+id/address_input_text_wrapper4"
-            android:layout_width="160dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_number">
+                <EditText
+                    android:id="@+id/address_input_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:inputType="text" />
+            </RelativeLayout>
 
-            <EditText
-                android:id="@+id/address_input_text4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="start|center_vertical"
-                android:inputType="text" />
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/address_input_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/house_and_flat_number"
+                android:theme="@style/InfoTextSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper2" />
 
-        <TextView
-            android:id="@+id/address_input_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/phone"
-            android:theme="@style/InfoTextSmall"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper3" />
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper3"
+                android:layout_width="152dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_number">
 
-        <RelativeLayout
-            android:id="@+id/address_input_text_wrapper5"
-            android:layout_width="320dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/white_rounded_rect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_input_phone">
+                <EditText
+                    android:id="@+id/address_input_text3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:inputType="text" />
+            </RelativeLayout>
 
-            <EditText
-                android:id="@+id/address_input_text5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="start|center_vertical"
-                android:inputType="phone" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper4"
+                android:layout_width="160dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_number">
 
-    </android.support.constraint.ConstraintLayout>
+                <EditText
+                    android:id="@+id/address_input_text4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:inputType="text" />
+            </RelativeLayout>
 
+            <TextView
+                android:id="@+id/address_input_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/phone"
+                android:theme="@style/InfoTextSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper3" />
+
+            <RelativeLayout
+                android:id="@+id/address_input_text_wrapper5"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_phone">
+
+                <EditText
+                    android:id="@+id/address_input_text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:inputType="phone" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/address_input_add_address"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/main_button_bg"
+                android:text="@string/input_add_address"
+                android:theme="@style/HollowButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/address_input_text_wrapper5"
+                app:layout_constraintStart_toStartOf="@+id/address_input_text_wrapper5"
+                app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper5" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

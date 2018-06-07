@@ -15,8 +15,8 @@ public class Order implements Serializable {
 
     Status status;
     List<BasketEntry> products;
-    // TODO Actual address/geo coordinates
-    Address address;
+    // TODO Actual deliveryAddress/geo coordinates
+    DeliveryAddress deliveryAddress;
     int totalPrice;
     Date date;
 

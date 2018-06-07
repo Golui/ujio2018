@@ -7,14 +7,14 @@
     android:background="@color/primary">
 
     <TextView
-        android:id="@+id/track_orders_empty_name"
+        android:id="@+id/address_manager_empty_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/no_orders"
+        android:text="@string/no_adresses"
         android:textColor="@color/grayText"
         android:textSize="24sp"
         android:textStyle="italic"

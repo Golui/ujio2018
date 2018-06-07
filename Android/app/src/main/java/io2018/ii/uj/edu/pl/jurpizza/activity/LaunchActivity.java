@@ -29,11 +29,12 @@ public class LaunchActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        configurateOrderButton();
-        configurateTrackButton();
+        configureOrderButton();
+        configureTrackButton();
+        configureAddressButton();
     }
 
-    private void configurateOrderButton() {
+    private void configureOrderButton() {
         Button orderButton = (Button) findViewById(R.id.order);
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,12 +44,22 @@ public class LaunchActivity extends Activity {
         });
     }
 
-    private void configurateTrackButton() {
+    private void configureTrackButton() {
         Button trackButton = (Button) findViewById(R.id.track);
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LaunchActivity.this, TrackOrders.class));
+            }
+        });
+    }
+
+    private void configureAddressButton() {
+        Button trackButton = (Button) findViewById(R.id.add_address);
+        trackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LaunchActivity.this, ManageAddresses.class));
             }
         });
     }
