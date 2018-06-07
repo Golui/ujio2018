@@ -9,4 +9,8 @@ public class Util {
         return MONEY_FORMAT.format(mon / 100.0) + " zł";
     }
 
+    public static String formatTime(int mins) {
+        return mins + " min";
+    }
+
 }

@@ -2,12 +2,16 @@ package io2018.ii.uj.edu.pl.jurpizza.io;
 
 import android.content.Context;
 
+import java.io.Serializable;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.model.Address;
 
-public interface AddressManager{
+public interface AddressManager extends Serializable {
 
-    public List<Address> loadAdresses(Context ctx);
-    public void saveAdresses(Context ctx, List<Address> adr);
+    void loadAddresses(Context ctx);
+
+    void saveAddresses(Context ctx);
+
+    List<Address> getAddresses();
 }

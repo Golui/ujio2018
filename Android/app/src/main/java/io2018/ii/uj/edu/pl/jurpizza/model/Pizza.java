@@ -30,7 +30,7 @@ public class Pizza extends BasketEntry {
     public String getName() {
         String s = super.getName();
         if (!sauce.equals("brak")) {
-            return super.getName() +  " + " + sauce;
+            return super.getName() + " + " + sauce;
         }
         return s;
     }

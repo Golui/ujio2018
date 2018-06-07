@@ -84,20 +84,21 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:text="@string/in_total"
             android:theme="@style/InfoTextSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/basket_preview_total_price_number" />
+            app:layout_constraintBottom_toTopOf="@+id/basket_preview_finalize"
+            app:layout_constraintEnd_toStartOf="@+id/basket_preview_total_price_number"
+            app:layout_constraintTop_toTopOf="@+id/basket_preview_total_price_number" />
 
         <View
             android:id="@+id/basket_preview_item_prices"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/white_rounded_rect"
-            app:layout_constraintBottom_toTopOf="@+id/basket_preview_total_price"
+            app:layout_constraintBottom_toBottomOf="@+id/basket_preview_items"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/basket_preview_items"
             app:layout_constraintTop_toTopOf="@+id/basket_preview_items" />
@@ -110,7 +111,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/white_rounded_rect"
-            app:layout_constraintBottom_toTopOf="@+id/basket_preview_total_price"
+            app:layout_constraintBottom_toTopOf="@+id/basket_preview_total_price_number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/basket_preview_price"
             app:layout_constraintWidth_percent="0.65" />
@@ -119,13 +120,12 @@
             android:id="@+id/basket_preview_scroll"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="1dp"
             android:background="@android:color/transparent"
             android:cacheColorHint="@android:color/transparent"
             android:divider="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@+id/basket_preview_total_price"
+            app:layout_constraintBottom_toBottomOf="@+id/basket_preview_items"
             app:layout_constraintEnd_toEndOf="@+id/basket_preview_item_prices"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/basket_preview_items"
             app:layout_constraintTop_toTopOf="@+id/basket_preview_items"
             tools:listitem="@layout/basket_preview_item">
@@ -140,8 +140,22 @@
             android:layout_marginEnd="8dp"
             android:text="@string/dummy_descr"
             android:theme="@style/InfoTextSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/basket_preview_finalize"
             app:layout_constraintEnd_toEndOf="@+id/basket_preview_scroll" />
+
+        <Button
+            android:id="@+id/basket_preview_finalize"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/main_button_bg"
+            android:text="@string/finalize_order"
+            android:theme="@style/HollowButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/basket_preview_scroll"
+            app:layout_constraintStart_toStartOf="@+id/basket_preview_scroll" />
 
     </android.support.constraint.ConstraintLayout>
 

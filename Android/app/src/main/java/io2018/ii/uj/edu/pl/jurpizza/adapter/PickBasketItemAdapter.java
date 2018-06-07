@@ -43,11 +43,12 @@ public class PickBasketItemAdapter extends BaseAdapter {
     public int getViewTypeCount() {
         return 2;
     }
+
     //instanceOf
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if(mBasketEntryList.get(position) instanceof Pizza) {
+        if (mBasketEntryList.get(position) instanceof Pizza) {
 
             convertView = View.inflate(mContext, R.layout.pick_pizza_item, null);
             TextView name = (TextView) convertView.findViewById(R.id.pick_pizza_name);

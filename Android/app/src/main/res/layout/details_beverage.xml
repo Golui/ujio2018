@@ -141,41 +141,35 @@
                 android:id="@+id/details_beverage_spinner2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
         </RelativeLayout>
 
         <TextView
             android:id="@+id/details_beverage_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/dummy_descr"
             android:theme="@style/InfoTextSmall"
-            app:layout_constraintBottom_toTopOf="@+id/details_beverage_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_beverage_spinner_wrapper1" />
 
         <Button
             android:id="@+id/details_beverage_add"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/main_button_bg"
             android:padding="8dp"
             android:text="@string/add_to_basket"
             android:textAllCaps="false"
             android:textColor="#F0F0F0"
             android:theme="@style/InfoTextSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="0.40625" />
+            app:layout_constraintEnd_toEndOf="@+id/details_beverage_spinner_wrapper1"
+            app:layout_constraintStart_toStartOf="@+id/details_beverage_spinner_wrapper1"
+            app:layout_constraintTop_toBottomOf="@+id/details_beverage_price" />
 
     </android.support.constraint.ConstraintLayout>
 

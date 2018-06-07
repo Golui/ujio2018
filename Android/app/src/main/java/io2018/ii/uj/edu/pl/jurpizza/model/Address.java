@@ -12,13 +12,19 @@ public class Address {
     // Leaving in case we change input
     // public static final Pattern FLAT_NUMBER_PATTERN = Pattern.compile("[PreviewBasketAdapter-zA-Z0-9]*/[PreviewBasketAdapter-zA-Z0-9]");
 
-    int town;
+    public enum Town {
+        CRACOW,
+        WARSAW,
+        HELSINKI
+    }
+
+    Town town;
     String postalCode;
     String street;
     String house;
     String flat;
 
-    public void setTown(int t)
+    public void setTown(Town t)
     {
         this.town = t;
     }
@@ -51,12 +57,12 @@ public class Address {
         this.flat = flat;
     }
 
-    public int getTown() {
+    public Town getTown() {
         return town;
     }
 
     public String getTownString() {
-        return ALLOWED_TOWNS[town];
+        return ALLOWED_TOWNS[town.ordinal()];
     }
 
     public String getPostalCode() {
