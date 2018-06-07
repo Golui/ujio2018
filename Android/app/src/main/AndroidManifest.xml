@@ -21,9 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TrackOrders" ></activity>
-        <activity android:name=".activity.PickPizza" ></activity>
-        <activity android:name=".activity.DetailsPizza"></activity>
+        <activity android:name=".activity.TrackOrders" />
+        <activity android:name=".activity.PickPizza" />
+        <activity android:name=".activity.DetailsPizza" />
+        <activity android:name=".activity.DetailsOrder"></activity>
     </application>
 
 </manifest>

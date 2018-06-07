@@ -35,39 +35,32 @@
 
         <Button
             android:id="@+id/order2"
-            android:layout_width="192dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/main_button_bg"
-            android:padding="8dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
             android:text="@string/payment_on_delivery"
-            android:textColor="#F0F0F0"
-            android:theme="@style/InfoTextSmall"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/payment_pick_method_text"
-            app:layout_constraintWidth_percent="0.40625" />
+            android:theme="@style/HollowButton"
+            app:layout_constraintEnd_toEndOf="@+id/payment_text"
+            app:layout_constraintStart_toStartOf="@+id/payment_text"
+            app:layout_constraintTop_toBottomOf="@+id/payment_pick_method_text" />
 
         <Button
             android:id="@+id/order3"
-            android:layout_width="192dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/main_button_bg"
-            android:padding="8dp"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
             android:text="@string/payment_transfer"
-            android:textColor="#F0F0F0"
-            android:theme="@style/InfoTextSmall"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/order2"
-            app:layout_constraintWidth_percent="0.40625" />
+            android:theme="@style/HollowButton"
+            app:layout_constraintEnd_toEndOf="@+id/order2"
+            app:layout_constraintStart_toStartOf="@+id/order2"
+            app:layout_constraintTop_toBottomOf="@+id/order2" />
 
         <TextView
             android:id="@+id/payment_header"

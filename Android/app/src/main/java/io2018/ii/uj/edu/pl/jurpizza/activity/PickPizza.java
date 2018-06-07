@@ -1,34 +1,20 @@
 package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.osmdroid.config.Configuration;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PickPizzaAdapter;
-<<<<<<< HEAD
+
 import io2018.ii.uj.edu.pl.jurpizza.io.OfferGetter;
-=======
-import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
->>>>>>> add pizza details activity
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickPizza extends Activity {
 
+    public static final String PIZZA_LIST_INTENT = "pizzas";
     private OfferGetter og;
 
     @Override
@@ -39,22 +25,7 @@ public class PickPizza extends Activity {
 
         ListView list = findViewById(R.id.pizza_selection_list);
 
-<<<<<<< HEAD
-        this.og = (OfferGetter) getIntent().getSerializableExtra(LaunchActivity.PIZZA_LIST_INTENT);
-=======
-        List<String> l = new ArrayList<String>(Arrays.asList("Kanapka", "Pomidor", "aaaaaaaaaaaaaa", "asdasdasdasdasdas", "ASDASDASDASDASDASDASDASDASD"));
-
-        final ArrayList<Pizza> myPizzas = new ArrayList<>();
-        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myPizzas.add(new Pizza( "Fungi", l, new BasketEntry.Variant("32 cm", 10000)));
-        myPizzas.add(new Pizza( "Cap", l, new BasketEntry.Variant("32 cm", 8000)));
-        myPizzas.add(new Pizza( "meksicana", l, new BasketEntry.Variant("32 cm", 9000)));
-        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myPizzas.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-
->>>>>>> add pizza details activity
+        this.og = (OfferGetter) getIntent().getSerializableExtra(PIZZA_LIST_INTENT);
 
         PickPizzaAdapter adapter = new PickPizzaAdapter(getApplicationContext(), this.og.downloadAvailablePizzas());
         list.setAdapter(adapter);

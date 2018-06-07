@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
-import io2018.ii.uj.edu.pl.jurpizza.model.Address;
+import io2018.ii.uj.edu.pl.jurpizza.io.AddressManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.OfferGetter;
+import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockAddressManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -23,8 +27,9 @@ public class LaunchActivity extends Activity {
 //        System.loadLibrary("jurpizza-native");
 //    }
 
-    public static final String PIZZA_LIST_INTENT = "pizzas";
-    public static final String PREVIOUS_ORDERS_INTENT = "orders";
+    private OfferGetter orderGetter = new MockOfferGetter();
+    private AddressManager addressManager = new MockAddressManager();
+    private OrderManager orderManager = new MockOrderManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,7 @@ public class LaunchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaunchActivity.this, PickPizza.class);
-                intent.putExtra(PIZZA_LIST_INTENT, new MockOfferGetter());
+                intent.putExtra(PickPizza.PIZZA_LIST_INTENT, LaunchActivity.this.orderGetter);
                 startActivity(intent);
             }
         });
@@ -58,7 +63,7 @@ public class LaunchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaunchActivity.this, TrackOrders.class);
-                // intent.putExtra(PREVIOUS_ORDERS_INTENT, null);
+                intent.putExtra(TrackOrders.PREVIOUS_ORDERS_INTENT, LaunchActivity.this.orderManager);
                 startActivity(intent);
             }
         });

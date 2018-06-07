@@ -2,23 +2,23 @@ package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.osmdroid.config.Configuration;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.TrackOrdersAdapter;
-import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.Order;
+import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 
 public class TrackOrders extends Activity {
+
+    public static final String PREVIOUS_ORDERS_INTENT = "orders";
+    OrderManager om;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +30,22 @@ public class TrackOrders extends Activity {
         setContentView(R.layout.track_orders);
 
         ListView lv = findViewById(R.id.track_orders_list);
-        List<Order> lo = new ArrayList<>();
-        List<BasketEntry> be = new ArrayList<>();
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lo.add(new Order(Order.Status.COMPLETED, be, new Date()));
-        lv.setAdapter(new TrackOrdersAdapter(lo, this));
+
+        this.om = (OrderManager) getIntent().getSerializableExtra(PREVIOUS_ORDERS_INTENT);
+        this.om.loadOrderHistory(getApplicationContext());
+
+        lv.setAdapter(new TrackOrdersAdapter(om.getOrders(), this));
         lv.addHeaderView(getLayoutInflater().inflate(R.layout.track_orders_header, null));
-        //lv.set
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(TrackOrders.this, DetailsOrder.class);
+                // Offset because header
+                intent.putExtra(DetailsOrder.ORDER_INTENT, TrackOrders.this.om.getOrders().get(position - 1));
+                startActivity(intent);
+            }
+        });
 
     }
 }

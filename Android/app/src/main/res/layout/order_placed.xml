@@ -35,12 +35,13 @@
 
         <Button
             android:id="@+id/track"
-            android:layout_width="192dp"
-            android:layout_height="96dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="156dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/main_button_bg"
+            android:maxWidth="480dp"
             android:padding="8dp"
             android:text="@string/track_order"
             android:textAllCaps="false"
@@ -48,27 +49,25 @@
             android:theme="@style/InfoTextSmall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="0.40625" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/back"
-            android:layout_width="192dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/main_button_bg"
             android:padding="8dp"
             android:text="@string/go_home_you_are_drunk"
             android:textAllCaps="false"
             android:textColor="#F0F0F0"
             android:theme="@style/InfoTextSmall"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/track"
-            app:layout_constraintWidth_percent="0.40625" />
+            app:layout_constraintEnd_toEndOf="@+id/track"
+            app:layout_constraintStart_toStartOf="@+id/track"
+            app:layout_constraintTop_toBottomOf="@+id/track" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/activity_main_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -92,7 +91,7 @@
             app:layout_constraintBottom_toTopOf="@+id/track"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_logo" />
 
     </android.support.constraint.ConstraintLayout>
 
