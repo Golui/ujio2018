@@ -3,6 +3,7 @@ package io2018.ii.uj.edu.pl.jurpizza.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,8 +45,17 @@ public class Payment extends Activity {
     }
 
     private void configureCashButton() {
-
-
+        Button button = (Button)findViewById(R.id.order2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.setClass(getApplicationContext(), LaunchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                intent.setClass(getApplicationContext(), OrderPlaced.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void configureWylewyButton() {
@@ -55,6 +65,18 @@ public class Payment extends Activity {
             public void onClick(View v) {
                 intent.setClass(Payment.this, PaymentPopUpWylewy48.class);
                 startActivity(intent);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        intent.setClass(getApplicationContext(), LaunchActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        intent.setClass(getApplicationContext(), OrderPlaced.class);
+                        startActivity(intent);
+                    }
+                }, 2000);
+
             }
         });
     }
