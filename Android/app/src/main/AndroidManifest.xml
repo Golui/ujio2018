@@ -24,7 +24,8 @@
         <activity android:name=".activity.TrackOrders" />
         <activity android:name=".activity.PickItem" />
         <activity android:name=".activity.DetailsPizza" />
-        <activity android:name=".activity.DetailsBeverage"></activity>
+        <activity android:name=".activity.DetailsBeverage" />
+        <activity android:name=".activity.BasketPreview"></activity>
     </application>
 
 </manifest>

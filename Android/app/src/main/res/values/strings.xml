@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">JurPizza</string>
-    <string name="order_pizza">Zamów pizzę!</string>
-    <string name="track_order">Śledź zamówienie!</string>
+    <string name="order_pizza">Zamów pizzę</string>
+    <string name="track_order">Śledź zamówienie</string>
     <string name="main_screen_logo_desc">JurPizza Main Logo</string>
-    <string name="pick_pizza">Wybierz Pizze!</string>
-    <string name="pick_beverage">Wybierz Napój!</string>
+    <string name="pick_pizza">Menu</string>
+    <string name="pick_beverage">Wybierz Napój</string>
     <string name="dummy_descr">DUMMY</string>
     <string name="how_much">Ile?</string>
     <string name="what">Co?</string>
     <string name="in_total">Razem:</string>
     <string name="amount">Ilość</string>
-    <string name="order_details">Szczegóły zamówienia</string>
+    <string name="order_details">Szczegóły</string>
     <string name="volume">Pojemność</string>
     <string name="for_how_much">Za ile?</string>
     <string name="where">Gdzie?</string>
@@ -19,6 +19,7 @@
     <string name="additional_toppings">Dodatkowe składniki</string>
     <string name="sauces">Sosy</string>
     <string name="size">Rozmiar</string>
+    <string name="your_order">Twoje zamówienie</string>
     <string name="your_orders">Twoje zamówienia</string>
     <string name="no_orders">Brak zamówień ☹</string>
     <string name="address_info">Dane adresowe</string>
@@ -34,4 +35,21 @@
     <string name="order_placed">Dziękujemy\nza zamówienie!\njuż się za nie zabieramy 😉</string>
     <string name="go_home_you_are_drunk">Wróć do strony początkowej</string>
     <string name="add_to_basket">Dodaj do koszyka</string>
+    <string-array name="sauces">
+        <item>brak</item>
+        <item>keczup</item>
+        <item>sos czosnkowy</item>
+        <item>sos słodkie chili</item>
+    </string-array>
+    <string-array name="pizza_size">
+        <item>32cm</item>
+        <item>41cm   (+ 9)</item>
+        <item>50cm   (+ 16)</item>
+    </string-array>
+    <string-array name="beverage_size">
+        <item>200ml</item>
+        <item>500ml   (+ 5)</item>
+        <item>700ml   (+ 7)</item>
+        <item>1000ml  (+ 10)</item>
+    </string-array>
 </resources>

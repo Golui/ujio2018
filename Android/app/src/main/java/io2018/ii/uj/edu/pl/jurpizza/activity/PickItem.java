@@ -5,64 +5,78 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PickBasketItemAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOfferGetter;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickItem extends Activity {
+    final int xxx = 3;
+
+    ArrayList<BasketEntry> pickedItemsInBasket;
+    ArrayList<BasketEntry> itemsList;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.pick_pizza);
+        listView = findViewById(R.id.pizza_selection_list);
 
-        ListView list = findViewById(R.id.pizza_selection_list);
+        pickedItemsInBasket = new ArrayList<>();
 
-        List<String> l = new ArrayList<String>(Arrays.asList("Kanapka", "Pomidor", "aaaaaaaaaaaaaa", "asdasdasdasdasdas", "ASDASDASDASDASDASDASDASDASD"));
+        createItemsList();
+        configureListView();
+        configureBasketButton();
+    }
 
-        final ArrayList<BasketEntry> myItems = new ArrayList<>();
-        myItems.addAll(new MockOfferGetter().downloadAvailableBeverages());
-        myItems.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myItems.add(new Pizza( "Fungi", l, new BasketEntry.Variant("32 cm", 10000)));
-        myItems.add(new Pizza( "Cap", l, new BasketEntry.Variant("32 cm", 8000)));
-        myItems.add(new Pizza( "Meksicana", l, new BasketEntry.Variant("32 cm", 9000)));
-        myItems.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myItems.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myItems.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
-        myItems.add(new Pizza( "Martgharita", l, new BasketEntry.Variant("32 cm", 8000)));
+    private void createItemsList() {
+        itemsList = new ArrayList<>();
+        itemsList.addAll(new MockOfferGetter().downloadAvailablePizzas());
+        itemsList.addAll(new MockOfferGetter().downloadAvailableBeverages());
+    }
 
+    private void configureListView() {
+        PickBasketItemAdapter adapter = new PickBasketItemAdapter(getApplicationContext(), itemsList);
+        listView.setAdapter(adapter);
 
-        PickBasketItemAdapter adapter = new PickBasketItemAdapter(getApplicationContext(), myItems);
-        list.setAdapter(adapter);
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String message = "You check " + myItems.get(position).getName() + "";
-                Toast.makeText(PickItem.this, message, Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Size: " + pickedItemsInBasket.size(), Toast.LENGTH_LONG).show();
                 Intent intent;
-                if(myItems.get(position) instanceof Beverage) {
+                if(itemsList.get(position) instanceof Beverage) {
                     intent = new Intent(PickItem.this, DetailsBeverage.class);
-                    intent.putExtra("beverage", myItems.get(position));
+                    intent.putExtra("beverage", itemsList.get(position));
                 } else {
                     intent = new Intent(PickItem.this, DetailsPizza.class);
-                    intent.putExtra("pizza", myItems.get(position));
+                    intent.putExtra("pizza", itemsList.get(position));
                 }
+                intent.putExtra("basket", pickedItemsInBasket);
                 startActivity(intent);
+                Toast.makeText(getBaseContext(), "Size: " + pickedItemsInBasket.size(), Toast.LENGTH_LONG).show();
             }
         });
+    }
 
+    private void configureBasketButton() {
+        ImageButton basketButton = (ImageButton) findViewById(R.id.basket_image);
+        basketButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PickItem.this, BasketPreview.class));
+            }
+        });
     }
 
 }

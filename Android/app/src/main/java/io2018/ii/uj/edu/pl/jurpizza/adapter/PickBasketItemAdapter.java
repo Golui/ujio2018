@@ -43,7 +43,7 @@ public class PickBasketItemAdapter extends BaseAdapter {
     public int getViewTypeCount() {
         return 2;
     }
-//instanceOf
+    //instanceOf
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -73,49 +73,4 @@ public class PickBasketItemAdapter extends BaseAdapter {
 
         return convertView;
     }
-
-/*
-
-
-
-
-    private static class ViewHolder {
-        TextView name;
-        TextView ingredeints;
-        TextView price;
-    }
-
-    public PickBasketItemAdapter(Context context, int textViewResourceId, ArrayList<Pizza> items) {
-        super(context, textViewResourceId, items);
-        this.addAll(items);
-    }
-
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewHolder;
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.pick_pizza_item, parent, false);
-
-            viewHolder = new ViewHolder();
-
-            viewHolder.name = (TextView) convertView.findViewById(R.id.pick_pizza_name);
-            viewHolder.ingredeints = (TextView) convertView.findViewById(R.id.pick_pizza_ingredients);
-            viewHolder.price = (TextView) convertView.findViewById(R.id.pick_pizza_price);
-
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-        }
-
-        Pizza item = getItem(position);
-        if (item!= null) {
-            Pizza pm = data.get(position);
-            viewHolder.name.setText(pm.getName());
-            viewHolder.ingredeints.setText(pm.getIngredients());
-            viewHolder.price.setText(Util.formatMoney(pm.getPrice()));
-        }
-
-        return convertView;
-    }
-*/
-
 }

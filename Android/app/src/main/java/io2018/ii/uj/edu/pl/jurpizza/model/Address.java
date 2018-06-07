@@ -10,7 +10,7 @@ public class Address {
 
     public static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("\\d\\d-\\d\\d\\d");
     // Leaving in case we change input
-    // public static final Pattern FLAT_NUMBER_PATTERN = Pattern.compile("[a-zA-Z0-9]*/[a-zA-Z0-9]");
+    // public static final Pattern FLAT_NUMBER_PATTERN = Pattern.compile("[PreviewBasketAdapter-zA-Z0-9]*/[PreviewBasketAdapter-zA-Z0-9]");
 
     int town;
     String postalCode;
@@ -30,7 +30,7 @@ public class Address {
             this.postalCode = raw;
         }else
         {
-            throw new AddressFormatException("Postal code is not a postal code");
+            throw new AddressFormatException("Postal code is not PreviewBasketAdapter postal code");
         }
     }
 
