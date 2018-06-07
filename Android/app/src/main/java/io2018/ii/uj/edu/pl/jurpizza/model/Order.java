@@ -3,6 +3,7 @@ package io2018.ii.uj.edu.pl.jurpizza.model;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +23,14 @@ public class Order implements Serializable {
     private Order() {
     }
 
-    public Order(Status s, List<BasketEntry> be, Date d) {
-        this.status = s;
-        this.products = be;
-        this.date = d;
-
-        if (!be.isEmpty()) for (BasketEntry b : be)
-            this.totalPrice += b.getPrice();
+    public Order(Status status, ArrayList<BasketEntry> basketEntryList, Date date) {
+        this.status = status;
+        this.products = basketEntryList;
+        this.date = date;
+        this.totalPrice = 0;
+        for (int i = 0; i < basketEntryList.size(); i++) {
+            totalPrice = totalPrice + basketEntryList.get(i).getPrice();
+        }
     }
 
     public String getName() {

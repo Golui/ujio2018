@@ -15,19 +15,16 @@ import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class MockOrderManager implements OrderManager {
 
-    List<Order> lo;
+    ArrayList<Order> lo;
 
     @Override
     public void loadOrderHistory(Context ctx) {
 
-        List<BasketEntry> be = new ArrayList<>();
-        this.lo = Arrays.asList(
-                new Order(Order.Status.COMPLETED, be, new Date(0)),
-                new Order(Order.Status.CANCELLED, be, new Date(7)),
-                new Order(Order.Status.CONFIRMED, be, new Date(2046124312)),
-                new Order(Order.Status.IN_DELIVERY, be, new Date(413412)),
-                new Order(Order.Status.PENDING, be, new Date(33322233))
-        );
+        ArrayList<BasketEntry> be = new ArrayList<>();
+        this.lo.add(new Order(Order.Status.COMPLETED, be, new Date(0)));
+        this.lo.add(new Order(Order.Status.CANCELLED, be, new Date(7)));
+        this.lo.add(new Order(Order.Status.CONFIRMED, be, new Date(2046124312)));
+        this.lo.add(new Order(Order.Status.PENDING, be, new Date(33322233)));
 
         Collections.sort(this.lo, new Comparator<Order>() {
             @Override

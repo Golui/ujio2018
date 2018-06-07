@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +26,8 @@ public class BasketPreview extends Activity {
 
     private ArrayList<BasketEntry> basket;
     ListView listView;
-
     TextView priceSum;
+    int sum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +44,10 @@ public class BasketPreview extends Activity {
             Toast.makeText(getBaseContext(), "basket creation", Toast.LENGTH_LONG).show();
             basket = new ArrayList<>();
         }
-//Nie mozna płacić jak sie nic nie kupiło
-
 
         configureItemsList();
         generateSum();
-    }
-
-    private void generateSum() {
-        int sum = 0;
-        for (int i = 0; i < basket.size(); i++) {
-            sum = sum + basket.get(i).getPrice();
-        }
-        priceSum.setText(Util.formatMoney(sum));
+        configureSummaryButton();
     }
 
     private void configureItemsList() {
@@ -66,6 +58,36 @@ public class BasketPreview extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            }
+        });
+
+    }
+
+    private void generateSum() {
+        sum = 0;
+        for (int i = 0; i < basket.size(); i++) {
+            sum = sum + basket.get(i).getPrice();
+        }
+        priceSum.setText(Util.formatMoney(sum));
+    }
+
+    private void configureSummaryButton() {
+        Button orderButton = (Button) findViewById(R.id.basket_preview_finalize);
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sum != 0) {
+                    Intent newIntent = null;
+
+                    newIntent = new Intent(BasketPreview.this, Payment.class); //            !!!!!!!!!!!!!!!
+
+                    //przekazuje dalej listę produktów ( KOSZYK )
+                    newIntent.putExtra( "basket", (ArrayList)getIntent().getExtras().get("basket"));
+
+                    startActivity(newIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Grzesiek, weź coś pierwsze kup...", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

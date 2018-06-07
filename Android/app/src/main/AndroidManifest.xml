@@ -26,7 +26,9 @@
         <activity android:name=".activity.DetailsPizza" />
         <activity android:name=".activity.DetailsBeverage" />
         <activity android:name=".activity.DetailsOrder" />
-        <activity android:name=".activity.BasketPreview"></activity>
+        <activity android:name=".activity.BasketPreview" />
+        <activity android:name=".activity.Payment" />
+        <activity android:name=".activity.PaymentPopUpWylewy48"></activity>
     </application>
 
 </manifest>
