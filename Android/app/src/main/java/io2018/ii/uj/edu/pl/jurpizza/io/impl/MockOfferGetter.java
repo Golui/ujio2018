@@ -40,7 +40,7 @@ public class MockOfferGetter implements OfferGetter {
                 new Beverage("Spiryt", 400),
                 new Beverage("Dr. Jan", 500),
                 new Beverage("Marzenia", 400),
-                new Beverage("Czapi Pomarańczowy", 500)
+                new Beverage("Czapi Pomarańcza", 500)
         );
 
         return beverageList;

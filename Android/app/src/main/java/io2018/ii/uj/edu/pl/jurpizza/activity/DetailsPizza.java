@@ -46,7 +46,7 @@ public class DetailsPizza extends Activity {
         customPizza = new Pizza((Pizza)getIntent().getExtras().get("pizza"));
         basket = (ArrayList) getIntent().getExtras().get("basket");
 
-        name.setText(customPizza.getName());
+        name.setText(customPizza.getName() + " (" + Util.formatMoney(customPizza.getPrice()) + ")");
         ingredeints.setText(customPizza.getIngredients());
         price.setText(Util.formatMoney(customPizza.getPrice()));
     }
