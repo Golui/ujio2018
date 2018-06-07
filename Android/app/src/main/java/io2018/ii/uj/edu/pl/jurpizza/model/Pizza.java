@@ -7,6 +7,7 @@ import io2018.ii.uj.edu.pl.jurpizza.R;
 public class Pizza extends BasketEntry {
     private String ingredients;
     private String sauce;
+    private int quantity;
 
     public Pizza(String name, List<String> ingredients, int basePrice) {
         super(name, basePrice);
@@ -15,12 +16,14 @@ public class Pizza extends BasketEntry {
         sb.delete(sb.length() - 2, sb.length());
         this.ingredients = sb.toString();
         this.sauce = "brak";
+        this.quantity = 1;
     }
 
     public Pizza(Pizza b) {
         super(b);
         this.ingredients = b.ingredients;
-        this.sauce = "";
+        this.sauce = b.sauce;
+        this.quantity = b.quantity;
     }
 
     @Override

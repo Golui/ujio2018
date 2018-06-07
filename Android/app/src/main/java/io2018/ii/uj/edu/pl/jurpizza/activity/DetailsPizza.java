@@ -1,6 +1,7 @@
 package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,8 @@ import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class DetailsPizza extends Activity {
+
+    private Intent basketIntent;
 
     private Pizza customPizza;
     private TextView name;
@@ -41,9 +44,11 @@ public class DetailsPizza extends Activity {
     }
 
     private void setFromIntent() {
-        basket = (ArrayList<BasketEntry>)getIntent().getSerializableExtra("basket");
+        basketIntent = getIntent();
+        Bundle b = basketIntent.getExtras();
 
-        customPizza = new Pizza((Pizza)getIntent().getSerializableExtra("pizza"));
+        customPizza = new Pizza((Pizza)b.get("pizza"));
+        basket = (ArrayList) b.get("basket");
 
         name.setText(customPizza.getName());
         ingredeints.setText(customPizza.getIngredients());
@@ -109,9 +114,14 @@ public class DetailsPizza extends Activity {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                basket.add(new Pizza(customPizza));
                 String message = "Dodano " + customPizza.getName() + " do Twojego koszyka";
                 Toast.makeText(DetailsPizza.this, message, Toast.LENGTH_LONG).show();
+
+                Intent data = new Intent();
+                basket.add(new Pizza(customPizza));
+                data.putExtra("basket", basket);
+                setResult(RESULT_OK, data);
+                finish();
             }
         });
     }

@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,9 +36,14 @@ public class BasketPreview extends Activity {
         listView = findViewById(R.id.basket_preview_scroll);
         priceSum = findViewById(R.id.basket_preview_total_price_number);
 
-        basket = new ArrayList<>();
-        basket.addAll(new MockOfferGetter().downloadAvailablePizzas());
-                //(ArrayList<BasketEntry>) getIntent().getSerializableExtra("basket");
+        Intent receivedIntent = getIntent();
+        if (receivedIntent != null) {
+            basket = (ArrayList<BasketEntry>) getIntent().getSerializableExtra("basket");
+        } else {
+            Toast.makeText(getBaseContext(), "basket creation", Toast.LENGTH_LONG).show();
+            basket = new ArrayList<>();
+        }
+
 
         configureItemsList();
         generateSum();

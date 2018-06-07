@@ -18,13 +18,14 @@ import io2018.ii.uj.edu.pl.jurpizza.adapter.PickBasketItemAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOfferGetter;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
+import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickItem extends Activity {
-    final int xxx = 3;
+    private Intent basketIntent = new Intent();
 
-    ArrayList<BasketEntry> pickedItemsInBasket;
-    ArrayList<BasketEntry> itemsList;
-    ListView listView;
+    private ArrayList<BasketEntry> basket;
+    private ArrayList<BasketEntry> itemsList;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,8 @@ public class PickItem extends Activity {
         setContentView(R.layout.pick_pizza);
         listView = findViewById(R.id.pizza_selection_list);
 
-        pickedItemsInBasket = new ArrayList<>();
+        basketIntent = getIntent();
+        basketIntent.putExtra("basket", new ArrayList<>());
 
         createItemsList();
         configureListView();
@@ -53,18 +55,14 @@ public class PickItem extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Size: " + pickedItemsInBasket.size(), Toast.LENGTH_LONG).show();
-                Intent intent;
                 if(itemsList.get(position) instanceof Beverage) {
-                    intent = new Intent(PickItem.this, DetailsBeverage.class);
-                    intent.putExtra("beverage", itemsList.get(position));
+                    basketIntent.setClass(PickItem.this, DetailsBeverage.class);
+                    basketIntent.putExtra("beverage", itemsList.get(position));
                 } else {
-                    intent = new Intent(PickItem.this, DetailsPizza.class);
-                    intent.putExtra("pizza", itemsList.get(position));
+                    basketIntent.setClass(PickItem.this, DetailsPizza.class);
+                    basketIntent.putExtra("pizza", itemsList.get(position));
                 }
-                intent.putExtra("basket", pickedItemsInBasket);
-                startActivity(intent);
-                Toast.makeText(getBaseContext(), "Size: " + pickedItemsInBasket.size(), Toast.LENGTH_LONG).show();
+                startActivityForResult(basketIntent,1);
             }
         });
     }
@@ -74,9 +72,20 @@ public class PickItem extends Activity {
         basketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PickItem.this, BasketPreview.class));
+                basketIntent.setClass(PickItem.this, BasketPreview.class);
+                startActivity(basketIntent);
             }
         });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                Bundle b = data.getExtras();
+                basket = (ArrayList) b.get("basket");
+                basketIntent.putExtra("basket", basket);
+            }
+        }
     }
 
 }

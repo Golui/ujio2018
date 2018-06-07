@@ -10,12 +10,14 @@ public abstract class BasketEntry implements Serializable {
     protected int basePrice;
     protected int aditionalPrice;
     protected String size;
+    private int quantity;
 
     public BasketEntry(String name, int price) {
         this.name = name;
         this.basePrice = price;
         this.aditionalPrice = 0;
         this.size = "";
+        this.quantity = 1;
     }
 
     public BasketEntry(BasketEntry b) {
@@ -23,6 +25,7 @@ public abstract class BasketEntry implements Serializable {
         this.basePrice = b.basePrice;
         this.aditionalPrice = b.aditionalPrice;
         this.size = b.size;
+        this.quantity = b.quantity;
     }
 
     public void setSize(String size) {
@@ -38,7 +41,11 @@ public abstract class BasketEntry implements Serializable {
     }
 
     public String getName() {
+        if (quantity > 1) {
+            return quantity + "x " + name + size;
+        }
         return name + size;
+
     }
 
     public int getPrice() {

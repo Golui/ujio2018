@@ -19,6 +19,7 @@ public class LaunchActivity extends Activity {
         System.loadLibrary("jurpizza-native");
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
