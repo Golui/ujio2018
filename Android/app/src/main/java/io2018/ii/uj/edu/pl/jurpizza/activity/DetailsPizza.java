@@ -20,8 +20,6 @@ import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class DetailsPizza extends Activity {
 
-    private Intent basketIntent;
-
     private Pizza customPizza;
     private TextView name;
     private TextView ingredeints;
@@ -40,15 +38,13 @@ public class DetailsPizza extends Activity {
         setFromIntent();
         configureSizeSpinner();
         configureSauceSpinner();
+        configureQuantitySpinner();
         configureOrderButton();
     }
 
     private void setFromIntent() {
-        basketIntent = getIntent();
-        Bundle b = basketIntent.getExtras();
-
-        customPizza = new Pizza((Pizza)b.get("pizza"));
-        basket = (ArrayList) b.get("basket");
+        customPizza = new Pizza((Pizza)getIntent().getExtras().get("pizza"));
+        basket = (ArrayList) getIntent().getExtras().get("basket");
 
         name.setText(customPizza.getName());
         ingredeints.setText(customPizza.getIngredients());
@@ -109,19 +105,43 @@ public class DetailsPizza extends Activity {
         });
     }
 
+    private void configureQuantitySpinner() {
+        Spinner quantitySpinner = (Spinner) findViewById(R.id.details_pizza_spinner3);
+        ArrayAdapter sauceAdapter = ArrayAdapter.createFromResource(this, R.array.quantity, android.R.layout.simple_spinner_item);
+        sauceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        quantitySpinner.setAdapter(sauceAdapter);
+
+        quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String string = parent.getItemAtPosition(position).toString();
+                String quantityString = string.substring(0, string.indexOf(' '));
+                customPizza.setQuantity(Integer.parseInt(quantityString));
+                if (position != 0) {
+                    Toast.makeText(getBaseContext(), "Klepniemy " + quantityString + " te same placki", Toast.LENGTH_LONG).show();
+                }
+                price.setText(Util.formatMoney(customPizza.getPrice()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
     private void configureOrderButton() {
         Button orderButton = (Button) findViewById(R.id.details_pizza_add);
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = "Dodano " + customPizza.getName() + " do Twojego koszyka";
+                String message = "Dodano " + customPizza.getName() + " do koszyka";
                 Toast.makeText(DetailsPizza.this, message, Toast.LENGTH_LONG).show();
 
                 Intent data = new Intent();
                 basket.add(new Pizza(customPizza));
                 data.putExtra("basket", basket);
                 setResult(RESULT_OK, data);
-                finish();
             }
         });
     }

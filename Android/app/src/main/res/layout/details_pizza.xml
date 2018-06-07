@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/sauces"
+            android:text="@string/sauce"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper1" />
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/additional_toppings"
+            android:text="@string/quantity"
             android:theme="@style/InfoTextSmall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_pizza_spinner_wrapper2" />

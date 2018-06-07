@@ -49,6 +49,10 @@ public abstract class BasketEntry implements Serializable {
     }
 
     public int getPrice() {
-        return basePrice + aditionalPrice;
+        return (basePrice + aditionalPrice) * quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

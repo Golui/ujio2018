@@ -5,11 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,7 +15,6 @@ import io2018.ii.uj.edu.pl.jurpizza.adapter.PickBasketItemAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOfferGetter;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class PickItem extends Activity {
     private Intent basketIntent = new Intent();

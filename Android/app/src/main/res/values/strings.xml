@@ -16,8 +16,8 @@
     <string name="where">Gdzie?</string>
     <string name="realisation_details">Szczegóły realizacji</string>
     <string name="status">Status</string>
-    <string name="additional_toppings">Dodatkowe składniki</string>
-    <string name="sauces">Sosy</string>
+    <string name="quantity">Ilość</string>
+    <string name="sauce">Sos</string>
     <string name="size">Rozmiar</string>
     <string name="your_order">Twoje zamówienie</string>
     <string name="your_orders">Twoje zamówienia</string>
@@ -63,4 +63,12 @@
         <item>700ml   (+ 7)</item>
         <item>1000ml  (+ 10)</item>
     </string-array>
+    <string-array name="quantity">
+        <item>1 szt</item>
+        <item>2 szt</item>
+        <item>3 szt</item>
+        <item>5 szt</item>
+        <item>10 szt</item>
+    </string-array>
+
 </resources>

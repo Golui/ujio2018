@@ -43,6 +43,7 @@ public class BasketPreview extends Activity {
             Toast.makeText(getBaseContext(), "basket creation", Toast.LENGTH_LONG).show();
             basket = new ArrayList<>();
         }
+//Nie mozna płacić jak sie nic nie kupiło
 
 
         configureItemsList();
