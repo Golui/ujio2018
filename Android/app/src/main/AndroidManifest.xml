@@ -28,7 +28,8 @@
         <activity android:name=".activity.DetailsOrder" />
         <activity android:name=".activity.BasketPreview" />
         <activity android:name=".activity.Payment" />
-        <activity android:name=".activity.PaymentPopUpWylewy48"></activity>
+        <activity android:name=".activity.PaymentPopUpWylewy48" />
+        <activity android:name=".activity.OrderPlaced"></activity>
     </application>
 
 </manifest>
