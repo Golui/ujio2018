@@ -79,10 +79,11 @@ public class BasketPreview extends Activity {
                 if (sum != 0) {
                     Intent newIntent = null;
 
-                    newIntent = new Intent(BasketPreview.this, Payment.class); //            !!!!!!!!!!!!!!!
+                    newIntent = new Intent(BasketPreview.this, ManageAddresses.class); //            !!!!!!!!!!!!!!!
 
                     //przekazuje dalej listę produktów ( KOSZYK )
                     newIntent.putExtra( "basket", (ArrayList)getIntent().getExtras().get("basket"));
+                    newIntent.putExtra("isOrdering", true);
 
                     startActivity(newIntent);
                 } else {

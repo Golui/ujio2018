@@ -142,6 +142,7 @@ public class DetailsPizza extends Activity {
                 basket.add(new Pizza(customPizza));
                 data.putExtra("basket", basket);
                 setResult(RESULT_OK, data);
+                finish();
             }
         });
     }

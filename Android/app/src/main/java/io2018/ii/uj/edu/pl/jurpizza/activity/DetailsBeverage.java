@@ -116,6 +116,7 @@ public class DetailsBeverage extends Activity {
                 basket.add(new Beverage(customBeverege));
                 data.putExtra("basket", basket);
                 setResult(RESULT_OK, data);
+                finish();
             }
         });
     }

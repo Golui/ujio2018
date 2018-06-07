@@ -121,7 +121,7 @@
             android:contentDescription="@string/dummy_descr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/cashregister" />
+            android:src="@mipmap/cashregister" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -136,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/order3"
-            app:srcCompat="@mipmap/cashusd" />
+            android:src="@mipmap/cashusd" />
 
     </android.support.constraint.ConstraintLayout>
 

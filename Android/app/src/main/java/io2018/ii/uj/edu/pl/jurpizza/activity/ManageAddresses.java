@@ -47,22 +47,40 @@ public class ManageAddresses extends Activity {
         this.addressManager.loadAddresses(getApplicationContext());
 
         lv.setAdapter(new AddressManagerAdapter(this.addressManager.getAddresses(), this));
-        lv.addHeaderView(getLayoutInflater().inflate(R.layout.track_orders_header, null));
+        lv.addHeaderView(getLayoutInflater().inflate(R.layout.address_manager_header, null));
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ManageAddresses.this, DetailsAddress.class);
-                DeliveryAddress adr = ManageAddresses.this.addressManager.getAddresses().get(position - 1);
-                if (adr == null) return;
-                // Offset because header
-                intent.putExtra(DetailsAddress.ADDRESS_INTENT, adr);
-                intent.putExtra(DetailsAddress.ADDRESS_INTENT_POS, position - 1);
-                startActivityForResult(intent, ALTER);
-            }
-        });
+        if (getIntent().getBooleanExtra("isOrdering", false)) {
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent newIntent = new Intent(ManageAddresses.this, Payment.class);
+
+                    //przekazuje dalej listę produktów ( KOSZYK )
+                    newIntent.putExtra("basket", (ArrayList) getIntent().getExtras().get("basket"));
+                    newIntent.putExtra("address", ManageAddresses.this.addressManager.getAddresses().get(position - 1));
+
+                    startActivity(newIntent);
+                }
+            });
+
+        } else {
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(ManageAddresses.this, DetailsAddress.class);
+                    DeliveryAddress adr = ManageAddresses.this.addressManager.getAddresses().get(position - 1);
+                    if (adr == null) return;
+                    // Offset because header
+                    intent.putExtra(DetailsAddress.ADDRESS_INTENT, adr);
+                    intent.putExtra(DetailsAddress.ADDRESS_INTENT_POS, position - 1);
+                    startActivityForResult(intent, ALTER);
+                }
+            });
+        }
+
 
         Button b = findViewById(R.id.address_manager_add_address);
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
