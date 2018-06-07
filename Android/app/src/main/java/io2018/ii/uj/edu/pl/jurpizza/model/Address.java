@@ -1,26 +1,22 @@
 package io2018.ii.uj.edu.pl.jurpizza.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.io.Serializable;
 import java.util.regex.Pattern;
 
 import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 
-public class Address implements Serializable {
+public class Address {
 
-    public static final String[] TOWNS_STR = {"Kraków", "Warszawa", "Helsinki"};
+    public static final String[] ALLOWED_TOWNS = {"Kraków", "Warszawa", "Helsinki"};
+
+    public static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("\\d\\d-\\d\\d\\d");
+    // Leaving in case we change input
+    // public static final Pattern FLAT_NUMBER_PATTERN = Pattern.compile("[PreviewBasketAdapter-zA-Z0-9]*/[PreviewBasketAdapter-zA-Z0-9]");
 
     public enum Town {
         CRACOW,
         WARSAW,
         HELSINKI
     }
-
-    public static final Pattern POSTAL_CODE_PATTERN = Pattern.compile("\\d\\d-\\d\\d\\d");
-    // Leaving in case we change input
-    // public static final Pattern FLAT_NUMBER_PATTERN = Pattern.compile("[a-zA-Z0-9]*/[a-zA-Z0-9]");
 
     Town town;
     String postalCode;
@@ -40,7 +36,7 @@ public class Address implements Serializable {
             this.postalCode = raw;
         }else
         {
-            throw new AddressFormatException("Postal code is not a postal code");
+            throw new AddressFormatException("Postal code is not PreviewBasketAdapter postal code");
         }
     }
 
@@ -66,7 +62,7 @@ public class Address implements Serializable {
     }
 
     public String getTownString() {
-        return TOWNS_STR[town.ordinal()];
+        return ALLOWED_TOWNS[town.ordinal()];
     }
 
     public String getPostalCode() {

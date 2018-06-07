@@ -6,63 +6,42 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class BasketEntry implements Serializable {
-    protected String baseName;
-    protected List<Variant> variants;
-    protected int variant = -1;
+    protected String name;
+    protected int basePrice;
+    protected int aditionalPrice;
+    protected String size;
 
-    public BasketEntry(String s, Variant... variants)
-    {
-        this.baseName = s;
-        this.variants = new ArrayList<>(Arrays.asList(variants));
+    public BasketEntry(String name, int price) {
+        this.name = name;
+        this.basePrice = price;
+        this.aditionalPrice = 0;
+        this.size = "";
     }
 
-    public BasketEntry(BasketEntry b)
-    {
-        this.variants = new ArrayList<>(b.variants);
-        Collections.sort(this.variants);
-        this.baseName = b.baseName;
-        this.variant = b.variant;
+    public BasketEntry(BasketEntry b) {
+        this.name = b.name;
+        this.basePrice = b.basePrice;
+        this.aditionalPrice = b.aditionalPrice;
+        this.size = b.size;
     }
 
-    public static class Variant implements Comparable<Variant>, Serializable
-    {
-        String volume;
-        int price;
-
-        public Variant(String v, int p)
-        {
-            this.volume = v;
-            this.price = p;
+    public void setSize(String size) {
+        if (!size.equals("32cm") && !size.equals("200ml") && !size.equals("")) {
+            this.size = "(" + size + ")";
+        } else {
+            this.size = "";
         }
+    }
 
-        @Override
-        public int compareTo(Variant o2) {
-            return Integer.compare(this.price, o2.price);
-        }
+    public void setAditionalPrice(int aditionalPrice) {
+        this.aditionalPrice = aditionalPrice;
     }
 
     public String getName() {
-        return baseName;
+        return name + size;
     }
 
-    /**
-     * Returns lowest price, to entice clients
-     */
     public int getPrice() {
-        return this.variants.get(this.variant == -1 ? 0 : this.variant).price;
-    }
-
-    public List<Variant> getAvailableVolumes() { return this.variants; }
-
-    public void setVariants(List<Variant> var) {
-        this.variants = var;
-    }
-
-    public void setVariant(int variant) {
-        this.variant = variant;
-    }
-
-    public String getBasketString() {
-        return this.baseName + (this.variant != -1 ? " (" + this.variants.get(this.variant).volume + ")" : "");
+        return basePrice + aditionalPrice;
     }
 }

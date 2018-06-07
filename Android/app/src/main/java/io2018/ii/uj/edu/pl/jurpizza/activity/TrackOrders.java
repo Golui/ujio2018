@@ -14,6 +14,7 @@ import org.osmdroid.config.Configuration;
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.TrackOrdersAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
 
 public class TrackOrders extends Activity {
 
@@ -31,7 +32,7 @@ public class TrackOrders extends Activity {
 
         ListView lv = findViewById(R.id.track_orders_list);
 
-        this.om = (OrderManager) getIntent().getSerializableExtra(PREVIOUS_ORDERS_INTENT);
+        this.om = new MockOrderManager();
         this.om.loadOrderHistory(getApplicationContext());
 
         lv.setAdapter(new TrackOrdersAdapter(om.getOrders(), this));
