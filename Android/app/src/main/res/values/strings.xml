@@ -35,7 +35,9 @@
     <string name="order_placed">Dziękujemy\nza zamówienie!\njuż się za nie zabieramy 😉</string>
     <string name="go_home_you_are_drunk">Wróć do strony początkowej</string>
     <string name="add_to_basket">Dodaj do koszyka</string>
+    <string name="add_address">Wprowadź adres</string>
     <string name="cancel_order">Anuluj zamówienie 😢</string>
+    <string name="finalize_order">Podsumowanie</string>
     <string-array name="statuses">
         <item>Magiczny status którego nie powinieneś widzieć</item>
         <item>W realizacji</item>

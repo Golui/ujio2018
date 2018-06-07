@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
@@ -57,10 +56,22 @@
             app:layout_constraintStart_toStartOf="@+id/order"
             app:layout_constraintTop_toBottomOf="@+id/order" />
 
+        <Button
+            android:id="@+id/add_address"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/main_button_bg"
+            android:text="@string/add_address"
+            android:theme="@style/HollowButton"
+            app:layout_constraintEnd_toEndOf="@+id/track"
+            app:layout_constraintStart_toStartOf="@+id/track"
+            app:layout_constraintTop_toBottomOf="@+id/track" />
+
         <ImageView
             android:id="@+id/activity_main_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="273dp"
+            android:layout_height="282dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/main_screen_logo_desc"
             android:src="@mipmap/jur_logo"
