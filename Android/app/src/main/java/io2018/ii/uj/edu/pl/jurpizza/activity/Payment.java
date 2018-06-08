@@ -102,5 +102,14 @@ public class Payment extends Activity {
                 om.saveOrders(getApplicationContext());
             }
         }, 30000);
+
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                OrderManager om = new MockOrderManager();
+                om.loadOrderHistory(getApplicationContext());
+                om.getOrders().get(0).setStatus(Order.Status.IN_DELIVERY);
+                om.saveOrders(getApplicationContext());
+            }
+        }, 40000);
     }
 }
