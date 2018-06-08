@@ -60,6 +60,8 @@ public class Payment extends Activity {
                 startActivity(intent);
             }
         });
+
+        registerOrder();
     }
 
     private void configureWylewyButton() {
@@ -92,6 +94,7 @@ public class Payment extends Activity {
         OrderManager om = new MockOrderManager();
         om.loadOrderHistory(getApplicationContext());
         om.getOrders().add(0, this.customOrder);
+        om.saveOrders(getApplicationContext());
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -99,6 +102,7 @@ public class Payment extends Activity {
                 OrderManager om = new MockOrderManager();
                 om.loadOrderHistory(getApplicationContext());
                 om.getOrders().get(0).setStatus(Order.Status.CONFIRMED);
+                om.saveOrders(getApplicationContext());
             }
         }, 30000);
     }

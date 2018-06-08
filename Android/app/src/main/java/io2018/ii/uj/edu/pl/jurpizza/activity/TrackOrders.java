@@ -15,6 +15,7 @@ import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.TrackOrdersAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class TrackOrders extends Activity {
 
@@ -42,6 +43,8 @@ public class TrackOrders extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(TrackOrders.this, DetailsOrder.class);
+                Order o = TrackOrders.this.om.getOrders().get(position - 1);
+                if (o.getStatus() == Order.Status.NO_ORDER) return;
                 // Offset because header
                 intent.putExtra(DetailsOrder.ORDER_INTENT, TrackOrders.this.om.getOrders().get(position - 1));
                 startActivity(intent);
