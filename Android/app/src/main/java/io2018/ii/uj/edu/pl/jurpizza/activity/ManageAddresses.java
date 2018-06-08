@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
@@ -93,6 +94,8 @@ public class ManageAddresses extends Activity {
                 startActivityForResult(intent, CREATE_NEW);
             }
         });
+
+        lv.deferNotifyDataSetChanged();
     }
 
     @Override
@@ -119,7 +122,14 @@ public class ManageAddresses extends Activity {
                 break;
         }
 
-        lv.deferNotifyDataSetChanged();
         this.addressManager.saveAddresses(getApplicationContext());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ManageAddresses.this.lv.deferNotifyDataSetChanged();
+            }
+        }, 100);
+
     }
 }

@@ -149,7 +149,7 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
     public void onClick(View v) {
 
         if (this.order.getStatus() == Order.Status.IN_DELIVERY || this.order.getStatus() == Order.Status.COMPLETED) {
-            Toast.makeText(getBaseContext(), "Tego zamówienia nie da się anulować1", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Tego zamówienia nie da się anulować!", Toast.LENGTH_LONG).show();
         } else {
             om.loadOrderHistory(getApplicationContext());
             this.order.setStatus(Order.Status.CANCELLED);

@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
 
 public class PaymentPopUpWylewy48 extends Activity {
 
@@ -17,7 +19,13 @@ public class PaymentPopUpWylewy48 extends Activity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-        getWindow().setLayout((int)(displayMetrics.widthPixels*.8), (int)(displayMetrics.heightPixels*.6));
+        getWindow().setLayout((int) (displayMetrics.widthPixels), (int) (displayMetrics.heightPixels));
+
+        OrderManager om = new MockOrderManager();
+        om.loadOrderHistory(getApplicationContext());
+        //HACK Investingate why it duplicates
+        om.getOrders().remove(1);
+        om.saveOrders(getApplicationContext());
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

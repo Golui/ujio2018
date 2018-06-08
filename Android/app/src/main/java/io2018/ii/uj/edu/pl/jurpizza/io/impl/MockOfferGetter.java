@@ -21,7 +21,7 @@ public class MockOfferGetter implements OfferGetter {
                 new Pizza("Kebab", Arrays.asList("pomidory", "ser", "cebula", "mięso kebab"), 1600),
                 new Pizza("Amerykańska", Arrays.asList("pomidory", "ser", "frytki", "wołowina"), 1000),
                 new Pizza("Faux pas", Arrays.asList("pomidory", "ser", "bazylia", "mielona kawa"), 1000),
-                new Pizza("Java", Arrays.asList("pomidory", "ser", "obiekty", "garbage collector", "\"bezpieczeństow\""), 1400),
+                new Pizza("Java", Arrays.asList("pomidory", "ser", "obiekty", "garbage collector", "\"bezpieczeństwo\""), 1400),
                 new Pizza("C", Arrays.asList("pomidory", "ser", "macro assembler"), 900),
                 new Pizza("Filmowa", Arrays.asList("pomidory", "ser", "statysta", "kamera", "nitroceluloza", "bite szkło"), 1000),
                 new Pizza("Krykiet", Arrays.asList("pomidory", "ser", "ciasto na bazie mąki ze świerszczy", "świerze świerszcze", "cebula"), 1000),

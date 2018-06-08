@@ -67,7 +67,6 @@ public class Payment extends Activity {
             @Override
             public void onClick(View v) {
                 intent.setClass(Payment.this, PaymentPopUpWylewy48.class);
-                startActivity(intent);
 
                 registerOrder();
 
@@ -81,6 +80,8 @@ public class Payment extends Activity {
                         startActivity(intent);
                     }
                 }, 8000);
+
+                startActivity(intent);
 
             }
         });
