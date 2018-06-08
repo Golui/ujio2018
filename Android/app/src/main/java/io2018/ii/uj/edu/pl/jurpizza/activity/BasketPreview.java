@@ -86,7 +86,7 @@ public class BasketPreview extends Activity {
                     newIntent = new Intent(BasketPreview.this, ManageAddresses.class); //            !!!!!!!!!!!!!!!
 
                     //przekazuje dalej listę produktów ( KOSZYK )
-                    newIntent.putExtra( "basket", (ArrayList)getIntent().getExtras().get("basket"));
+                    newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
                     newIntent.putExtra("isOrdering", true);
 
                     startActivity(newIntent);

@@ -20,6 +20,7 @@ import io2018.ii.uj.edu.pl.jurpizza.adapter.AddressManagerAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 import io2018.ii.uj.edu.pl.jurpizza.io.AddressManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockAddressManager;
+import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 
 public class ManageAddresses extends Activity {
@@ -56,7 +57,7 @@ public class ManageAddresses extends Activity {
                     Intent newIntent = new Intent(ManageAddresses.this, Payment.class);
 
                     //przekazuje dalej listę produktów ( KOSZYK )
-                    newIntent.putExtra("basket", (ArrayList) getIntent().getExtras().get("basket"));
+                    newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
                     newIntent.putExtra("address", ManageAddresses.this.addressManager.getAddresses().get(position - 1));
 
                     startActivity(newIntent);

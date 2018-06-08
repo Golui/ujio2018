@@ -31,7 +31,7 @@ public class PickItem extends Activity {
         listView = findViewById(R.id.pizza_selection_list);
 
         basketIntent = getIntent();
-        basketIntent.putExtra("basket", new ArrayList<>());
+        basketIntent.putExtra("basket", new ArrayList<BasketEntry>());
 
         createItemsList();
         configureListView();
@@ -78,7 +78,7 @@ public class PickItem extends Activity {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bundle b = data.getExtras();
-                basket = (ArrayList) b.get("basket");
+                basket = (ArrayList<BasketEntry>) b.get("basket");
                 basketIntent.putExtra("basket", basket);
             }
         }

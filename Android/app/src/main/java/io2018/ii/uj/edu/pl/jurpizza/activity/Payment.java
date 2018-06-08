@@ -14,7 +14,10 @@ import java.util.Date;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
+import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
+import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 import static io2018.ii.uj.edu.pl.jurpizza.model.Order.Status.NO_ORDER;
@@ -34,6 +37,7 @@ public class Payment extends Activity {
         priceSum = findViewById(R.id.payment_text);
 
         customOrder =  new Order(NO_ORDER, (ArrayList<BasketEntry>)getIntent().getExtras().get("basket"), new Date());
+        customOrder.setDeliveryAddress((DeliveryAddress) getIntent().getExtras().get("address"));
 
         priceSum.setText(Util.formatMoney(customOrder.getTotalPrice()));
 
@@ -66,6 +70,8 @@ public class Payment extends Activity {
                 intent.setClass(Payment.this, PaymentPopUpWylewy48.class);
                 startActivity(intent);
 
+                registerOrder();
+
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
@@ -75,9 +81,25 @@ public class Payment extends Activity {
                         intent.setClass(getApplicationContext(), OrderPlaced.class);
                         startActivity(intent);
                     }
-                }, 2000);
+                }, 8000);
 
             }
         });
+    }
+
+    private void registerOrder() {
+        this.customOrder.setStatus(Order.Status.PENDING);
+        OrderManager om = new MockOrderManager();
+        om.loadOrderHistory(getApplicationContext());
+        om.getOrders().add(0, this.customOrder);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                OrderManager om = new MockOrderManager();
+                om.loadOrderHistory(getApplicationContext());
+                om.getOrders().get(0).setStatus(Order.Status.CONFIRMED);
+            }
+        }, 30000);
     }
 }

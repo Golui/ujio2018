@@ -2,6 +2,8 @@ package io2018.ii.uj.edu.pl.jurpizza.io.impl;
 
 import android.content.Context;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,37 +13,54 @@ import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
+import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class MockOrderManager implements OrderManager {
 
-    ArrayList<Order> lo;
+    List<Order> lo;
 
     @Override
     public void loadOrderHistory(Context ctx) {
 
-        ArrayList<BasketEntry> be = new ArrayList<>();
-        this.lo.add(new Order(Order.Status.COMPLETED, be, new Date(0)));
-        this.lo.add(new Order(Order.Status.CANCELLED, be, new Date(7)));
-        this.lo.add(new Order(Order.Status.CONFIRMED, be, new Date(2046124312)));
-        this.lo.add(new Order(Order.Status.PENDING, be, new Date(33322233)));
+        try {
+            ObjectInputStream ois = new ObjectInputStream(ctx.openFileInput("orders"));
+            this.lo = (List<Order>) ois.readObject();
+        } catch (java.io.IOException e) {
+            //e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-        Collections.sort(this.lo, new Comparator<Order>() {
-            @Override
-            public int compare(Order o1, Order o2) {
-                return -o1.getDate().compareTo(o2.getDate());
-            }
-        });
+        if (this.lo == null) {
+            this.lo = new ArrayList<>();
+        }
     }
 
     @Override
     public void saveOrders(Context ctx) {
+        try {
+            ObjectOutputStream fos = new ObjectOutputStream(ctx.openFileOutput("orders", Context.MODE_PRIVATE));
+            fos.writeObject(this.lo);
+            fos.close();
 
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<Order> getOrders() {
         if (this.lo == null) throw new IllegalStateException("Load orders first");
         return this.lo;
+    }
+
+    public void sort() {
+        Collections.sort(this.getOrders(), new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                return o2.getDate().compareTo(o1.getDate());
+            }
+        });
     }
 }

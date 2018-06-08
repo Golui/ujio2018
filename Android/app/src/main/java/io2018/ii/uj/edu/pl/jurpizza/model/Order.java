@@ -20,6 +20,26 @@ public class Order implements Serializable {
     int totalPrice;
     Date date;
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setProducts(List<BasketEntry> products) {
+        this.products = products;
+    }
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     private Order() {
     }
 
