@@ -2,9 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/white_rounded_rect"></item>
     <item
-        android:left="8dp"
-        android:right="8dp"
         android:id="@+id/pizza_selection_line"
-        android:drawable="@drawable/dashed_line">
-    </item>
+        android:drawable="@drawable/dashed_line"
+        android:left="8dp"
+        android:right="8dp"></item>
 </layer-list>

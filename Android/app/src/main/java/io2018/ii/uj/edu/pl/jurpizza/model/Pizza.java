@@ -2,8 +2,6 @@ package io2018.ii.uj.edu.pl.jurpizza.model;
 
 import java.util.List;
 
-import io2018.ii.uj.edu.pl.jurpizza.R;
-
 public class Pizza extends BasketEntry {
     private String ingredients;
     private String sauce;
@@ -39,11 +37,11 @@ public class Pizza extends BasketEntry {
         return ingredients;
     }
 
-    public void setSauce(String sauce) {
-        this.sauce = sauce;
-    }
-
     public String getSauce() {
         return sauce;
+    }
+
+    public void setSauce(String sauce) {
+        this.sauce = sauce;
     }
 }

@@ -1,9 +1,6 @@
 package io2018.ii.uj.edu.pl.jurpizza.model;
+
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public abstract class BasketEntry implements Serializable {
     protected String name;

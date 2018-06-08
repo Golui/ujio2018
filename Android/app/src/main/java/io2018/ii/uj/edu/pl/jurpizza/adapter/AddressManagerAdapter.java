@@ -12,7 +12,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.util.List;
 
-
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 

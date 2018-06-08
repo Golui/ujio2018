@@ -22,26 +22,6 @@ public class Order implements Serializable {
     Date date;
     long startTime;
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public void setProducts(List<BasketEntry> products) {
-        this.products = products;
-    }
-
-    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     private Order() {
         startTime = System.nanoTime();
     }
@@ -62,6 +42,21 @@ public class Order implements Serializable {
         }
     }
 
+    public static Order empty() {
+        Order o = new Order();
+
+        o.status = Status.NO_ORDER;
+        return o;
+    }
+
+    public void setProducts(List<BasketEntry> products) {
+        this.products = products;
+    }
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
     public String getName() {
         return FORMAT.format(date);
     }
@@ -70,19 +65,24 @@ public class Order implements Serializable {
         return totalPrice;
     }
 
-    public static Order empty() {
-        Order o = new Order();
-
-        o.status = Status.NO_ORDER;
-        return o;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Date getDate() {
         return date;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public Status getStatus() {
         return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public long getStartTime() {

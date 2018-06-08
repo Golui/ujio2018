@@ -7,5 +7,6 @@ import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public interface OfferGetter {
     public List<Pizza> downloadAvailablePizzas();
+
     public List<Beverage> downloadAvailableBeverages();
 }

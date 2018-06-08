@@ -17,13 +17,11 @@ import java.util.Arrays;
 import java.util.Date;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
-import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 import io2018.ii.uj.edu.pl.jurpizza.io.AddressManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockAddressManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class LaunchActivity extends Activity {

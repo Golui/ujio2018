@@ -3,7 +3,6 @@ package io2018.ii.uj.edu.pl.jurpizza.model;
 import java.io.Serializable;
 import java.util.regex.Pattern;
 
-import io2018.ii.uj.edu.pl.jurpizza.activity.DetailsAddress;
 import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 
 public class DeliveryAddress implements Serializable {

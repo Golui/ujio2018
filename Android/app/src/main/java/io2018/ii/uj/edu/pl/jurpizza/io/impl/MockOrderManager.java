@@ -5,15 +5,11 @@ import android.content.Context;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
-import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class MockOrderManager implements OrderManager {

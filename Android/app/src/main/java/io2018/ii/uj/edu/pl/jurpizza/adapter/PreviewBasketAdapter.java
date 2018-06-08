@@ -11,8 +11,6 @@ import java.util.List;
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 
 public class PreviewBasketAdapter extends BaseAdapter {

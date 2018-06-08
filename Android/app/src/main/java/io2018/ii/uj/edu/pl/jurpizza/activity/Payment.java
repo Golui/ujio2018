@@ -34,7 +34,7 @@ public class Payment extends Activity {
 
         priceSum = findViewById(R.id.payment_text);
 
-        customOrder =  new Order(NO_ORDER, (ArrayList<BasketEntry>)getIntent().getExtras().get("basket"), new Date());
+        customOrder = new Order(NO_ORDER, (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"), new Date());
         customOrder.setDeliveryAddress((DeliveryAddress) getIntent().getExtras().get("address"));
 
         priceSum.setText(Util.formatMoney(customOrder.getTotalPrice()));
@@ -46,7 +46,7 @@ public class Payment extends Activity {
     }
 
     private void configureCashButton() {
-        Button button = (Button)findViewById(R.id.order2);
+        Button button = (Button) findViewById(R.id.order2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +62,7 @@ public class Payment extends Activity {
     }
 
     private void configureWylewyButton() {
-        Button button = (Button)findViewById(R.id.order3);
+        Button button = (Button) findViewById(R.id.order3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

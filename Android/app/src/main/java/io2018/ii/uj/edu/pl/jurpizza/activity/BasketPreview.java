@@ -19,10 +19,10 @@ import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 
 public class BasketPreview extends Activity {
 
-    private ArrayList<BasketEntry> basket;
     ListView listView;
     TextView priceSum;
     int sum;
+    private ArrayList<BasketEntry> basket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

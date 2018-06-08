@@ -51,14 +51,14 @@ public class PickItem extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(itemsList.get(position) instanceof Beverage) {
+                if (itemsList.get(position) instanceof Beverage) {
                     basketIntent.setClass(PickItem.this, DetailsBeverage.class);
                     basketIntent.putExtra("beverage", itemsList.get(position));
                 } else {
                     basketIntent.setClass(PickItem.this, DetailsPizza.class);
                     basketIntent.putExtra("pizza", itemsList.get(position));
                 }
-                startActivityForResult(basketIntent,1);
+                startActivityForResult(basketIntent, 1);
             }
         });
     }
@@ -69,7 +69,7 @@ public class PickItem extends Activity {
             @Override
             public void onClick(View v) {
                 basketIntent.setClass(PickItem.this, BasketPreview.class);
-                startActivityForResult(basketIntent,1);
+                startActivityForResult(basketIntent, 1);
             }
         });
     }

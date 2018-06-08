@@ -16,10 +16,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
-
-import io2018.ii.uj.edu.pl.jurpizza.R;
 
 public class DetailsAddress extends Activity implements View.OnClickListener {
 

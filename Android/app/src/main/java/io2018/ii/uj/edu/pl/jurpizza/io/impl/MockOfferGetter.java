@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.io.OfferGetter;
-import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
 import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
 import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 

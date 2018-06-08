@@ -5,11 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.constraint.ConstraintLayout;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -22,13 +20,10 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 
-import java.util.Date;
-
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
-import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class DetailsOrder extends Activity implements View.OnClickListener {
