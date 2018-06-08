@@ -40,12 +40,8 @@ public class BasketPreview extends Activity {
         priceSum = findViewById(R.id.basket_preview_total_price_number);
 
         Intent receivedIntent = getIntent();
-        if (receivedIntent != null) {
-            basket = (ArrayList<BasketEntry>) getIntent().getSerializableExtra("basket");
-        } else {
-            Toast.makeText(getBaseContext(), "basket creation", Toast.LENGTH_LONG).show();
-            basket = new ArrayList<>();
-        }
+
+        basket = (ArrayList) getIntent().getExtras().get("basket");
 
         configureItemsList();
         generateSum();
@@ -60,8 +56,12 @@ public class BasketPreview extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), "Usunięto " + basket.get(position).getName(), Toast.LENGTH_LONG).show();
+                Intent data = new Intent();
                 basket.remove(position);
+                data.putExtra("basket", basket);
+                setResult(RESULT_OK, data);
                 listView.setAdapter(new PreviewBasketAdapter(getApplicationContext(), basket));
+                generateSum();
             }
         });
     }

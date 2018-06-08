@@ -69,7 +69,7 @@ public class PickItem extends Activity {
             @Override
             public void onClick(View v) {
                 basketIntent.setClass(PickItem.this, BasketPreview.class);
-                startActivity(basketIntent);
+                startActivityForResult(basketIntent,1);
             }
         });
     }
