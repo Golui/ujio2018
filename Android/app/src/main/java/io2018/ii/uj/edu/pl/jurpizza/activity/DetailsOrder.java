@@ -20,6 +20,7 @@ import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
 
 import java.util.Date;
 
@@ -38,6 +39,7 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
     ImageView hourglass;
     TextView status;
     OrderManager om = new MockOrderManager();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,19 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
         map.setMultiTouchControls(true);
         IMapController mapController = map.getController();
         mapController.setZoom(18);
-        GeoPoint startPoint = new GeoPoint(50.02894, 19.90750);
+        GeoPoint startPoint = new GeoPoint(50.0250927, 19.9030436);
+
+        Marker startMarker = new Marker(map);
+        startMarker.setPosition(startPoint);
+        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        startMarker.setTitle("Lokal JurPizza");
+        map.getOverlays().add(startMarker);
+
+        startMarker.setPosition(startPoint);
+        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        startMarker.setTitle("Lokal JurPizza");
+        map.getOverlays().add(startMarker);
+
         mapController.setCenter(startPoint);
         map.setOnTouchListener(new View.OnTouchListener() {
             @Override
