@@ -64,7 +64,6 @@ public class BasketPreview extends Activity {
                 listView.setAdapter(new PreviewBasketAdapter(getApplicationContext(), basket));
             }
         });
-
     }
 
     private void generateSum() {
