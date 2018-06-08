@@ -98,12 +98,12 @@ public class Order implements Serializable {
     }
 
     public enum Status {
-        NO_ORDER(R.mipmap.hourglass),
-        PENDING(R.mipmap.pending),
-        CONFIRMED(R.mipmap.confirmed),
-        CANCELLED(R.mipmap.cancelled),
-        IN_DELIVERY(R.mipmap.indelivery),
-        COMPLETED(R.mipmap.confirmed);
+        NO_ORDER(R.drawable.hourglass),
+        PENDING(R.drawable.pending),
+        CONFIRMED(R.drawable.confirmed),
+        CANCELLED(R.drawable.cancelled),
+        IN_DELIVERY(R.drawable.indelivery),
+        COMPLETED(R.drawable.confirmed);
 
         int resource;
 

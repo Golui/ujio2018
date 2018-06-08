@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/main_screen_logo_desc"
-            android:src="@mipmap/jur_logo_mini"
+            android:src="@drawable/jur_logo_mini"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

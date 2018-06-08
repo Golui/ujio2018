@@ -183,7 +183,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/dummy_descr"
-                android:src="@mipmap/hourglass"
+                android:src="@drawable/hourglass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/details_order_header"
                 app:layout_constraintTop_toTopOf="parent" />

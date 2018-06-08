@@ -74,7 +74,7 @@
             android:layout_height="282dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/main_screen_logo_desc"
-            android:src="@mipmap/jur_logo"
+            android:src="@drawable/jur_logo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
