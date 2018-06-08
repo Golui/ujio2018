@@ -25,7 +25,10 @@ public class OrderPlaced extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrackOrders.class);
+                Intent intent = new Intent(getApplicationContext(), LaunchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                intent.setClass(getApplicationContext(), TrackOrders.class);
                 startActivity(intent);
             }
         });
