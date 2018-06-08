@@ -10,14 +10,12 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 import io2018.ii.uj.edu.pl.jurpizza.model.DeliveryAddress;
 

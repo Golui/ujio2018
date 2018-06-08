@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +24,6 @@ import static io2018.ii.uj.edu.pl.jurpizza.model.Order.Status.NO_ORDER;
 public class Payment extends Activity {
 
     Intent intent;
-
     TextView priceSum;
     Order customOrder;
 
@@ -45,7 +43,6 @@ public class Payment extends Activity {
 
         configureCashButton();
         configureWylewyButton();
-
     }
 
     private void configureCashButton() {

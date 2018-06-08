@@ -18,18 +18,19 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
+import java.util.Date;
+
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class DetailsOrder extends Activity implements View.OnClickListener {
 
     public static final String ORDER_INTENT = "order";
 
-    Order o;
+    Order order;
     ImageView hourglass;
     TextView status;
     OrderManager om = new MockOrderManager();
@@ -44,7 +45,7 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
         om.loadOrderHistory(getApplicationContext());
-        o = (Order) om.getOrders().get(getIntent().getIntExtra(ORDER_INTENT, -1));
+        order = (Order) om.getOrders().get(getIntent().getIntExtra(ORDER_INTENT, -1));
 
         status = findViewById(R.id.details_order_status);
         TextView timeEstimate = findViewById(R.id.details_order_time_estimate);
@@ -78,10 +79,21 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
             }
         });
 
-        status.setText(getResources().getStringArray(R.array.statuses)[o.getStatus().ordinal()]);
-        // Set estimate to be random, beacuse that's jsut life™
-        timeEstimate.setText(Util.formatTime(((int) (Math.random() * 12)) * 5));
-        hourglass.setImageResource(o.getStatus().getResource());
+        status.setText(getResources().getStringArray(R.array.statuses)[order.getStatus().ordinal()]);
+
+        if (order.getStatus() == Order.Status.IN_DELIVERY) {
+            int time = (int) (order.getStartTime() / 60000000) / 600 + 60 - (int) (System.nanoTime() / 60000000) / 600;
+            if (time < 0) {
+                time = 0;
+            }
+            timeEstimate.setText(Util.formatTime(time));
+
+        } else {
+            timeEstimate.setText("N/A");
+        }
+
+
+        hourglass.setImageResource(order.getStatus().getResource());
 
         Button b = findViewById(R.id.details_order_cancel);
         b.setOnClickListener(this);
@@ -90,16 +102,16 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (this.o.getStatus() == Order.Status.IN_DELIVERY || this.o.getStatus() == Order.Status.COMPLETED) {
+        if (this.order.getStatus() == Order.Status.IN_DELIVERY || this.order.getStatus() == Order.Status.COMPLETED) {
             Toast.makeText(getBaseContext(), "Tego zamówienia nie da się anulować1", Toast.LENGTH_LONG).show();
         } else {
             om.loadOrderHistory(getApplicationContext());
-            this.o.setStatus(Order.Status.CANCELLED);
+            this.order.setStatus(Order.Status.CANCELLED);
             om.getOrders().get(DetailsOrder.this.getIntent().getIntExtra(ORDER_INTENT, -1)).setStatus(Order.Status.CANCELLED);
             om.saveOrders(getApplicationContext());
 
-            status.setText(getResources().getStringArray(R.array.statuses)[o.getStatus().ordinal()]);
-            hourglass.setImageResource(o.getStatus().getResource());
+            status.setText(getResources().getStringArray(R.array.statuses)[order.getStatus().ordinal()]);
+            hourglass.setImageResource(order.getStatus().getResource());
 
             Toast.makeText(getBaseContext(), "Pieniądze zostaną zwrócone w ciągu 24 godzin.", Toast.LENGTH_LONG).show();
         }

@@ -3,7 +3,6 @@ package io2018.ii.uj.edu.pl.jurpizza.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -56,7 +55,6 @@ public class ManageAddresses extends Activity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent newIntent = new Intent(ManageAddresses.this, Payment.class);
 
-                    //przekazuje dalej listę produktów ( KOSZYK )
                     newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
                     newIntent.putExtra("address", ManageAddresses.this.addressManager.getAddresses().get(position - 1));
 
@@ -79,7 +77,6 @@ public class ManageAddresses extends Activity {
             });
         }
 
-
         Button b = findViewById(R.id.address_manager_add_address);
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +93,6 @@ public class ManageAddresses extends Activity {
                 startActivityForResult(intent, CREATE_NEW);
             }
         });
-
     }
 
     @Override

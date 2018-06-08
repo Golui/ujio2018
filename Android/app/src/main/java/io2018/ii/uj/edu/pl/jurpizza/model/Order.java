@@ -19,6 +19,7 @@ public class Order implements Serializable {
     DeliveryAddress deliveryAddress;
     int totalPrice;
     Date date;
+    long startTime;
 
     public void setStatus(Status status) {
         this.status = status;
@@ -41,9 +42,11 @@ public class Order implements Serializable {
     }
 
     private Order() {
+        startTime = System.nanoTime();
     }
 
     public Order(Status status, ArrayList<BasketEntry> basketEntryList, Date date) {
+        startTime = System.nanoTime();
         this.status = status;
         this.products = basketEntryList;
         this.date = date;
@@ -74,6 +77,10 @@ public class Order implements Serializable {
 
     public Status getStatus() {
         return status;
+    }
+
+    public long getStartTime() {
+        return startTime;
     }
 
     public enum Status {
