@@ -10,7 +10,15 @@ import android.widget.Button;
 
 import org.osmdroid.config.Configuration;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.io.OrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOrderManager;
+import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
+import io2018.ii.uj.edu.pl.jurpizza.model.Order;
 
 public class LaunchActivity extends Activity {
 
@@ -28,6 +36,18 @@ public class LaunchActivity extends Activity {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
         setContentView(R.layout.activity_main);
+
+        OrderManager om = new MockOrderManager();
+        om.loadOrderHistory(getApplicationContext());
+        om.getOrders().clear();
+        om.getOrders().addAll(Arrays.asList(
+                new Order(Order.Status.PENDING, new ArrayList<BasketEntry>(), new Date()),
+                new Order(Order.Status.CONFIRMED, new ArrayList<BasketEntry>(), new Date()),
+                new Order(Order.Status.CANCELLED, new ArrayList<BasketEntry>(), new Date()),
+                new Order(Order.Status.IN_DELIVERY, new ArrayList<BasketEntry>(), new Date()),
+                new Order(Order.Status.COMPLETED, new ArrayList<BasketEntry>(), new Date())
+        ));
+        om.saveOrders(this.getApplicationContext());
 
         configureOrderButton();
         configureTrackButton();

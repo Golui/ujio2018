@@ -157,6 +157,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/main_button_bg"
+                android:onClick="onClick"
                 android:text="@string/cancel_order"
                 android:theme="@style/HollowButton"
                 app:layout_constraintBottom_toBottomOf="parent"

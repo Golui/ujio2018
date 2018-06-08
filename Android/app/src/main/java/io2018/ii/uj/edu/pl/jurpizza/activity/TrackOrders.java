@@ -21,6 +21,13 @@ public class TrackOrders extends Activity {
 
     public static final String PREVIOUS_ORDERS_INTENT = "orders";
     OrderManager om;
+    ListView lv;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        this.lv.deferNotifyDataSetChanged();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,7 @@ public class TrackOrders extends Activity {
 
         setContentView(R.layout.track_orders);
 
-        ListView lv = findViewById(R.id.track_orders_list);
+        lv = findViewById(R.id.track_orders_list);
 
         this.om = new MockOrderManager();
         this.om.loadOrderHistory(getApplicationContext());
@@ -46,8 +53,8 @@ public class TrackOrders extends Activity {
                 Order o = TrackOrders.this.om.getOrders().get(position - 1);
                 if (o.getStatus() == Order.Status.NO_ORDER) return;
                 // Offset because header
-                intent.putExtra(DetailsOrder.ORDER_INTENT, TrackOrders.this.om.getOrders().get(position - 1));
-                startActivity(intent);
+                intent.putExtra(DetailsOrder.ORDER_INTENT, position - 1);
+                startActivityForResult(intent, 0);
             }
         });
 
