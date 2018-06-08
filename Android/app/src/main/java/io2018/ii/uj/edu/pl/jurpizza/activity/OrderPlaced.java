@@ -17,7 +17,6 @@ public class OrderPlaced extends Activity {
 
         configureTrackButton();
         configureHomeButton();
-
     }
 
     private void configureTrackButton() {

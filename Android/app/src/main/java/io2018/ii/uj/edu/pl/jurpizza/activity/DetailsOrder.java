@@ -16,10 +16,11 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
+import java.util.Date;
+
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
 import io2018.ii.uj.edu.pl.jurpizza.model.Order;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class DetailsOrder extends Activity {
 
@@ -34,7 +35,7 @@ public class DetailsOrder extends Activity {
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
-        Order o = (Order) getIntent().getSerializableExtra(ORDER_INTENT);
+        Order order = (Order) getIntent().getSerializableExtra(ORDER_INTENT);
 
         TextView status = findViewById(R.id.details_order_status);
         TextView timeEstimate = findViewById(R.id.details_order_time_estimate);
@@ -68,9 +69,13 @@ public class DetailsOrder extends Activity {
             }
         });
 
-        status.setText(getResources().getStringArray(R.array.statuses)[o.getStatus().ordinal()]);
-        // Set estimate to be random, beacuse that's jsut life™
-        timeEstimate.setText(Util.formatTime(((int) (Math.random() * 12)) * 5));
-        hourglass.setImageResource(o.getStatus().getResource());
+        status.setText(getResources().getStringArray(R.array.statuses)[order.getStatus().ordinal()]);
+        int time = (int)(order.getStartTime() / 60000000) / 600  + 60 - (int)(System.nanoTime() / 60000000) / 600;
+        if (time < 0) {
+            time = 0;
+        }
+        timeEstimate.setText(Util.formatTime(time));
+
+        hourglass.setImageResource(order.getStatus().getResource());
     }
 }

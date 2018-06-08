@@ -120,5 +120,4 @@ public class DetailsBeverage extends Activity {
             }
         });
     }
-
 }

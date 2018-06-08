@@ -1,13 +1,10 @@
 package io2018.ii.uj.edu.pl.jurpizza.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,12 +14,8 @@ import java.util.ArrayList;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
 import io2018.ii.uj.edu.pl.jurpizza.Util;
-import io2018.ii.uj.edu.pl.jurpizza.adapter.PickBasketItemAdapter;
 import io2018.ii.uj.edu.pl.jurpizza.adapter.PreviewBasketAdapter;
-import io2018.ii.uj.edu.pl.jurpizza.io.impl.MockOfferGetter;
 import io2018.ii.uj.edu.pl.jurpizza.model.BasketEntry;
-import io2018.ii.uj.edu.pl.jurpizza.model.Beverage;
-import io2018.ii.uj.edu.pl.jurpizza.model.Pizza;
 
 public class BasketPreview extends Activity {
 
@@ -82,9 +75,8 @@ public class BasketPreview extends Activity {
                 if (sum != 0) {
                     Intent newIntent = null;
 
-                    newIntent = new Intent(BasketPreview.this, ManageAddresses.class); //            !!!!!!!!!!!!!!!
+                    newIntent = new Intent(BasketPreview.this, ManageAddresses.class);
 
-                    //przekazuje dalej listę produktów ( KOSZYK )
                     newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
                     newIntent.putExtra("isOrdering", true);
 
@@ -94,6 +86,5 @@ public class BasketPreview extends Activity {
                 }
             }
         });
-
     }
 }
