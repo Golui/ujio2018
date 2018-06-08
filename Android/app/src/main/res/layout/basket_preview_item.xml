@@ -22,14 +22,19 @@
         android:id="@+id/preview_basket_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/dummy_descr"
         android:textColor="@color/darkText"
-        android:textSize="24sp"
+        android:textSize="12sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/preview_basket_item_wrapper"
         app:layout_constraintStart_toStartOf="@+id/preview_basket_item_wrapper"
-        app:layout_constraintTop_toTopOf="@+id/preview_basket_item_wrapper" />
+        app:layout_constraintTop_toTopOf="@+id/preview_basket_item_wrapper"
+        app:layout_constraintWidth_percent="0.6" />
 
     <TextView
         android:id="@+id/preview_basket_item_price"
@@ -38,7 +43,7 @@
         android:layout_marginEnd="4dp"
         android:text="@string/dummy_descr"
         android:textColor="@color/darkText"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:textStyle="italic"
         app:layout_constraintBaseline_toBaselineOf="@+id/preview_basket_item_name"
         app:layout_constraintEnd_toEndOf="@+id/preview_basket_item_wrapper" />

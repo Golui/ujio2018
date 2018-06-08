@@ -160,47 +160,48 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/address_input_text_wrapper2" />
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/address_input_text_wrapper3"
-                android:layout_width="152dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:maxWidth="400dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/white_rounded_rect"
+                android:maxWidth="400dp"
+                app:layout_constraintEnd_toEndOf="@+id/address_input_text_wrapper2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/address_input_number">
 
                 <EditText
                     android:id="@+id/address_input_text3"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:gravity="start|center_vertical"
-                    android:paddingLeft="8dp"
-                    android:inputType="text" />
-            </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/address_input_text_wrapper4"
-                android:layout_width="160dp"
-                android:layout_height="48dp"
-                android:maxWidth="400dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/white_rounded_rect"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/address_input_number">
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/white_rounded_rect"
+                    android:gravity="start|center_vertical"
+                    android:inputType="text"
+                    android:paddingLeft="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/address_input_text4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5" />
 
                 <EditText
                     android:id="@+id/address_input_text4"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/white_rounded_rect"
                     android:gravity="start|center_vertical"
+                    android:inputType="text"
                     android:paddingLeft="8dp"
-                    android:inputType="text" />
-            </RelativeLayout>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.45" />
+            </android.support.constraint.ConstraintLayout>
+
 
             <TextView
                 android:id="@+id/address_input_phone"

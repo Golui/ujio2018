@@ -45,7 +45,7 @@
 
         <RelativeLayout
             android:id="@+id/details_beverage_spinner_wrapper1"
-            android:layout_width="320dp"
+            android:layout_width="0dp"
             android:layout_height="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -127,7 +127,7 @@
 
         <RelativeLayout
             android:id="@+id/details_beverage_spinner_wrapper2"
-            android:layout_width="320dp"
+            android:layout_width="0dp"
             android:layout_height="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"

@@ -82,7 +82,7 @@ public class DetailsOrder extends Activity implements View.OnClickListener {
             public boolean onTouch(View v, MotionEvent event) {
                 ScrollView sv = findViewById(R.id.details_order_main_scroll);
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
+                    //case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_MOVE:
                         sv.requestDisallowInterceptTouchEvent(true);
                         break;

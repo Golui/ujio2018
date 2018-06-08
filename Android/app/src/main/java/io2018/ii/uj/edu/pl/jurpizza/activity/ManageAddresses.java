@@ -129,7 +129,7 @@ public class ManageAddresses extends Activity {
             public void run() {
                 ManageAddresses.this.lv.deferNotifyDataSetChanged();
             }
-        }, 100);
+        }, 1000);
 
     }
 }

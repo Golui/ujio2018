@@ -41,7 +41,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/your_order"
-            android:theme="@style/InfoText"
+            android:theme="@style/InfoTextSmall"
             app:layout_constraintBottom_toBottomOf="@+id/basket_image"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/basket_image" />
