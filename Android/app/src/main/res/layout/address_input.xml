@@ -231,9 +231,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:gravity="start|center_vertical"
+                    android:inputType="phone"
                     android:paddingLeft="8dp"
-                    android:inputType="phone" />
+                    android:text="+42 069 420 694"
+                    android:textColor="#808080"
+                    android:textStyle="italic" />
             </RelativeLayout>
 
             <Button

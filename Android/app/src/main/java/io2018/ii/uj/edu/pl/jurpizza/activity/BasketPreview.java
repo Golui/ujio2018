@@ -45,18 +45,20 @@ public class BasketPreview extends Activity {
         PreviewBasketAdapter adapter = new PreviewBasketAdapter(getApplicationContext(), basket);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Usunięto " + basket.get(position).getName(), Toast.LENGTH_LONG).show();
-                Intent data = new Intent();
-                basket.remove(position);
-                data.putExtra("basket", basket);
-                setResult(RESULT_OK, data);
-                listView.setAdapter(new PreviewBasketAdapter(getApplicationContext(), basket));
-                generateSum();
-            }
-        });
+        if (!getIntent().getBooleanExtra("DELETE", false)) {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getBaseContext(), "Usunięto " + basket.get(position).getName(), Toast.LENGTH_LONG).show();
+                    Intent data = new Intent();
+                    basket.remove(position);
+                    data.putExtra("basket", basket);
+                    setResult(RESULT_OK, data);
+                    listView.setAdapter(new PreviewBasketAdapter(getApplicationContext(), basket));
+                    generateSum();
+                }
+            });
+        }
     }
 
     private void generateSum() {
@@ -69,22 +71,26 @@ public class BasketPreview extends Activity {
 
     private void configureSummaryButton() {
         Button orderButton = (Button) findViewById(R.id.basket_preview_finalize);
-        orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sum != 0) {
-                    Intent newIntent = null;
+        if (getIntent().getBooleanExtra("DELETE", false)) {
+            orderButton.setVisibility(View.INVISIBLE);
+        } else {
+            orderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (sum != 0) {
+                        Intent newIntent = null;
 
-                    newIntent = new Intent(BasketPreview.this, ManageAddresses.class);
+                        newIntent = new Intent(BasketPreview.this, ManageAddresses.class);
 
-                    newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
-                    newIntent.putExtra("isOrdering", true);
+                        newIntent.putExtra("basket", (ArrayList<BasketEntry>) getIntent().getExtras().get("basket"));
+                        newIntent.putExtra("isOrdering", true);
 
-                    startActivity(newIntent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Grzesiek, weź coś pierwsze kup...", Toast.LENGTH_LONG).show();
+                        startActivity(newIntent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Grzesiek, weź coś pierwsze kup...", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 }

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import io2018.ii.uj.edu.pl.jurpizza.R;
+import io2018.ii.uj.edu.pl.jurpizza.exception.AddressFormatException;
 
 public class Order implements Serializable {
 
@@ -46,6 +47,11 @@ public class Order implements Serializable {
     }
 
     public Order(Status status, ArrayList<BasketEntry> basketEntryList, Date date) {
+        this.deliveryAddress = new DeliveryAddress();
+        try {
+            deliveryAddress.setIdentifier("Test address");
+        } catch (AddressFormatException e) {
+        }
         startTime = System.nanoTime();
         this.status = status;
         this.products = basketEntryList;
@@ -81,6 +87,14 @@ public class Order implements Serializable {
 
     public long getStartTime() {
         return startTime;
+    }
+
+    public DeliveryAddress getAddress() {
+        return deliveryAddress;
+    }
+
+    public ArrayList<BasketEntry> getBasketCopy() {
+        return new ArrayList<>(this.products);
     }
 
     public enum Status {

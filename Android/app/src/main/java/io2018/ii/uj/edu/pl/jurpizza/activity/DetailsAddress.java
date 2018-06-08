@@ -52,7 +52,22 @@ public class DetailsAddress extends Activity implements View.OnClickListener {
         townSpinner = findViewById(R.id.address_input_spinner1);
 
         Button add = findViewById(R.id.address_input_add_address);
-        add.setOnClickListener(this);
+        if (getIntent().getBooleanExtra("DELETE", false)) {
+            add.setVisibility(View.INVISIBLE);
+            this.identifierEdit.setClickable(false);
+            this.identifierEdit.setFocusable(false);
+
+            this.streetEdit.setClickable(false);
+            this.streetEdit.setFocusable(false);
+
+            this.houseEdit.setClickable(false);
+            this.houseEdit.setFocusable(false);
+
+            this.flatEdit.setClickable(false);
+            this.flatEdit.setFocusable(false);
+        } else {
+            add.setOnClickListener(this);
+        }
 
         ArrayAdapter sizeAdapter = ArrayAdapter.createFromResource(this, R.array.towns, android.R.layout.simple_spinner_item);
         sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

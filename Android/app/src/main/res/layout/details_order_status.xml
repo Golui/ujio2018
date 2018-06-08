@@ -92,6 +92,44 @@
                 app:layout_constraintTop_toBottomOf="@+id/details_order_status" />
 
             <TextView
+                android:id="@+id/details_order_address"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                android:gravity="center"
+                android:text="@string/dummy_descr"
+                android:textColor="@color/darkText"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details_order_time_estimate"
+                app:layout_constraintWidth_max="320dp" />
+
+            <TextView
+                android:id="@+id/details_order_basket"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_rounded_rect"
+                android:gravity="center"
+                android:text="@string/dummy_descr"
+                android:textColor="@color/darkText"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details_order_address"
+                app:layout_constraintWidth_max="320dp" />
+
+            <TextView
                 android:id="@+id/details_order_map_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,7 +138,7 @@
                 android:text="@string/where"
                 android:theme="@style/InfoTextSmall"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details_order_time_estimate" />
+                app:layout_constraintTop_toBottomOf="@+id/details_order_basket" />
 
             <TextView
                 android:id="@+id/details_order_header"
